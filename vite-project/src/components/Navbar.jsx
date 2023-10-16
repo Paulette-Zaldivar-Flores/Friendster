@@ -1,9 +1,10 @@
 import React from 'react';
-import '../assets/stylesheets/components/_navbar.scss';
+
+
 
 function Navbar() {
   return (
-    <nav>
+    <nav className='navbar'>
       <ul>
         <li>
           <a href="/">Home</a>

@@ -1,4 +1,4 @@
-@import "./assets/stylesheets/_index.scss";
+@import "./assets/stylesheets/index.scss";
 
 #root {
   max-width: 1280px;

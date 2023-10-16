@@ -1,4 +1,7 @@
-@import "./components/navbar";
+@import 'navbar';
+
+
+$primary-color: #fbf8f8;
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -6,7 +9,7 @@
   font-weight: 400;
   color-scheme: light dark;
   color: rgba(175, 18, 227, 0.87);
-  background-color: #fbf8f8;
+  background-color: $primary-color;
 }
 
 
