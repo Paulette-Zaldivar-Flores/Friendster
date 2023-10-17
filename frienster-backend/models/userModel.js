@@ -1,4 +1,4 @@
-const userService = require("../services/userService");
+const userService = require("../../services/userService");
 
 // Create a new user in the database using the user service
 const createUser = async (name, email, passwordHash) => {
