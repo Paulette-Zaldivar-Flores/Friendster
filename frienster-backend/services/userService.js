@@ -1,4 +1,4 @@
-const pool = require("../configs/db"); // Import your PostgreSQL database connection pool here
+const pool = require("../frienster-backend/configs/db"); // Import your PostgreSQL database connection pool here
 const admin = require("firebase-admin");
 // Create a new user in the database
 const createUser = async (name, email, passwordHash) => {
