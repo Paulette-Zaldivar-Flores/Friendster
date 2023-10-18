@@ -1,36 +1,53 @@
 .navbar {
-  background: #ff66b2; /* Bright pink background */
-  padding: 20px;
+  background: #ffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
+}
 
-    li {
-      a {
-        text-decoration: none;
-        color: #fff; /* White links */
-        transition: color 0.3s;
+.logo {
+  max-width: 80px;
+}
 
-        &:hover {
-          color: #ccc; /* Grey links on hover */
-        }
+ul {
+
+  list-style: none;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    margin: 0 1rem;
+
+    a {
+      text-decoration: none;
+      color: #000000;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: #ccc;
       }
     }
   }
 
   @media (max-width: 768px) {
-    ul {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-      li {
-        a {
-          font-size: 1.2rem; /* Larger font on small screens */
-        }
+    .logo {
+
+      margin-bottom: 10px;
+        max-width: 50px;
+
+    }
+
+    li {
+      a {
+        font-size: 1rem;
       }
     }
   }

@@ -1,10 +1,14 @@
 import React from 'react';
+import Logo from '../assets/Friendster.png'
 
 
 
 function Navbar() {
   return (
     <nav className='navbar'>
+      <div className="logo">
+        <img src={Logo} alt="Logo"  className='logo'/>
+      </div>
       <ul>
         <li>
           <a href="/">Home</a>

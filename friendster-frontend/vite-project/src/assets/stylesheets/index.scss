@@ -1,26 +1,33 @@
 @import 'navbar';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
-
-$primary-color: #fbf8f8;
+$primary-color: #ffff;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(175, 18, 227, 0.87);
+  font-family: 'Poppins', sans-serif;
   background-color: $primary-color;
 }
+//   --color-primary:
+//   --color-secondary:
+//   --color-tertiary:
+//   --color-primary-darker:
+//   --color-secondary-darker:
+//   --color-tertiary-darker:
+// }
 
-
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+  max-height: 100%;
 }
