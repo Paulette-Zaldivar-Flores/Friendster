@@ -11,12 +11,11 @@ function App() {
   return (
       <div className = "App">
         <Navbar/>
-        <h1>Vite + React</h1>
-        <Footer/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Results" element={<Results />} />
         </Routes>
+        <Footer/>
       </div>
   );
 }
