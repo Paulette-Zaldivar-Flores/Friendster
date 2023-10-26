@@ -5,7 +5,7 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Getting Started](#getting-started)
-- [User Guide](#user-guide)
+
 
 
 
@@ -57,8 +57,8 @@ To get started with Friendster, follow these steps:
 4. Sync the app with your calendar for easy event coordination.
 5. Stay connected with friends and enjoy unforgettable moments!
 
-## User Guide
+## Developers
 
-For a detailed guide on how to use Friendster, refer to our [User Guide](user-guide.md) for step-by-step instructions and tips.
+Tamana Rahman and Paulette Zaldivar-Flores
 
 

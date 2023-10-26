@@ -21,8 +21,8 @@ function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto d-flex center-links">
-            <Nav.Link href="#home" className = "ms-3">Home</Nav.Link>
-            <Nav.Link href="#link" className = "ms-3">Link</Nav.Link>
+            <Nav.Link href="/" className = "ms-3">Home</Nav.Link>
+            <Nav.Link href="/Results" className = "ms-3">Results</Nav.Link>
             <Button variant="success" className = "ms-3">Log Out</Button>
           </Nav>
         </Navbar.Collapse>
