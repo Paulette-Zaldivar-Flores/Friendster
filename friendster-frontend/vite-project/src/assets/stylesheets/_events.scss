@@ -1,0 +1,9 @@
+.event-card {
+  border-radius: 20px;
+  background: #FECDF3;
+  transition: transform 0.2s; /* Add a smooth transform effect on hover */
+
+  &:hover {
+    transform: scale(1.05); /* Increase the size slightly on hover for a nice effect */
+  }
+}
