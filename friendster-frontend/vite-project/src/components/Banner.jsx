@@ -2,9 +2,28 @@ import React, { useState } from 'react';
 
 const Banner = () => {
   const [inputValue, setInputValue] = useState('');
+  const [keywordValue, setKeywordValue] = useState('');
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+  };
+
+  const handleKeywordChange = (e) => {
+    setKeywordValue(e.target.value);
+  };
+
+  const handleSearch = () => {
+    // Here you can perform the search using 'inputValue' and 'keywordValue'.
+    //Implement the search functionality and pass the criteria to  backend or data source.
+
+
+    const searchCriteria = {
+      keywords: keywordValue,
+      location: inputValue,
+
+    };
+
+    // Send the 'searchCriteria' to our db or perform the search operation??.
   };
 
   return (
@@ -17,12 +36,13 @@ const Banner = () => {
           <input
             type="text"
             placeholder="Search for an event..."
-            value={inputValue}
-            onChange={handleInputChange}
+            value={keywordValue}
+            onChange={handleKeywordChange}
           />
           <button
             type="button"
-            className={`btn custom-purple-outline-btn ${inputValue ? 'active' : ''}`}
+            className={`btn custom-purple-outline-btn ${inputValue || keywordValue ? 'active' : ''}`}
+            onClick={handleSearch}
           >
             Search
           </button>
