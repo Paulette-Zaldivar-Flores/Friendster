@@ -1,4 +1,5 @@
 import React from 'react';
+import Event from './../assets/event-image.jpg'
 
 function Footer() {
   const today = new Date().toLocaleDateString('en-US', {
@@ -36,7 +37,13 @@ function Footer() {
               <div className="footer-widget-content">
                 <div className="media">
                   <div className="media-left">
-                    <a href="#"><img className="media-object" src="event_image_1.jpg" alt="Event 1" /></a>
+                    <a href="#">
+                      <img
+                      className="media-object"
+                      src={ Event}
+                      width="60"
+                      height="60"
+                      alt="Event 1" /></a>
                   </div>
                   <div className="media-body">
                     <p><a href="#">Exciting Event 1</a></p>
@@ -45,7 +52,14 @@ function Footer() {
                 </div>
                 <div className="media">
                   <div className="media-left">
-                    <a href="#."><img className="media-object" src="event_image_2.jpg" alt="Event 2" /></a>
+                    <a href="#.">
+                      <img
+                      className="media-object"
+                      src={ Event}
+                      width="60"
+                      height="60"
+                      alt="Event 2" />
+                      </a>
                   </div>
                   <div className="media-body">
                     <p><a href="#">Amazing Event 2</a></p>
@@ -62,12 +76,12 @@ function Footer() {
               <div className="footer-widget-content">
                 <div className="images-gallery">
                   <ul>
-                    <li><a href="#"><img src="event_image_3.jpg" alt="Event 3" /></a></li>
-                    <li><a href="#"><img src="event_image_4.jpg" alt="Event 4" /></a></li>
-                    <li><a href="#"><img src="event_image_5.jpg" alt="Event 5" /></a></li>
-                    <li><a href="#"><img src="event_image_6.jpg" alt="Event 6" /></a></li>
-                    <li><a href="#"><img src="event_image_7.jpg" alt="Event 7" /></a></li>
-                    <li><a href="#"><img src="event_image_8.jpg" alt="Event 8" /></a></li>
+                    <li><a href="#"><img src={ Event} width="60" height="60" alt="Event 3" /></a></li>
+                    <li><a href="#"><img src={ Event} width="60" height="60" alt="Event 4" /></a></li>
+                    <li><a href="#"><img src={ Event} width="60" height="60" alt="Event 5" /></a></li>
+                    <li><a href="#"><img src={ Event} width="60" height="60"alt="Event 6" /></a></li>
+                    <li><a href="#"><img src={ Event} width="60" height="60" alt="Event 7" /></a></li>
+                    <li><a href="#"><img src={ Event} width="60" height="60"alt="Event 8" /></a></li>
                   </ul>
                 </div>
               </div>
