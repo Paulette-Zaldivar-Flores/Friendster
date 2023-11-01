@@ -2,8 +2,13 @@
   border-radius: 20px;
   background: #FECDF3;
   transition: transform 0.2s; /* Add a smooth transform effect on hover */
+  background-image: url('../event-image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
 
   &:hover {
-    transform: scale(1.05); /* Increase the size slightly on hover for a nice effect */
+    transform: scale(1.05);
   }
 }
