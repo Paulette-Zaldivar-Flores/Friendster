@@ -1,12 +1,14 @@
 .event-card {
   border-radius: 20px;
   background: #FECDF3;
-  transition: transform 0.2s; /* Add a smooth transform effect on hover */
+  transition: transform 0.2s;
   background-image: url('../event-image.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   color: white;
+  height: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
     transform: scale(1.05);
