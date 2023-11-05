@@ -4,13 +4,51 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 
-.banner-content {
+%icons-leftmar-shared {
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  margin-left: 100px;
+}
+
+%icons-rightmar-shared {
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  margin-right: 100px;
+}
+
+.banner-content1 {
+  flex-grow: 1;
+  padding: 50px;
+  .icons1 {
+    background-image: url('../images/icons/banner/emoji.png');
+    @extend %icons-leftmar-shared;
+  }
+
+  .icons2 {
+    background-image: url('../images/icons/banner/glass.png');
+    @extend %icons-rightmar-shared;
+  }
+
+  .icons3 {
+    background-image: url('../images/icons/banner/party.png');
+    @extend %icons-leftmar-shared;
+  }
+}
+
+.banner-content2 {
   font-family: 'Poppins', sans-serif;
   text-align: center;
   color: black;
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   h1 {
     font-size: 40px;
@@ -21,6 +59,7 @@
   .search-bar {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   input {
@@ -36,6 +75,26 @@
     -webkit-background-clip: text; /* For older versions of webkit browsers */
     color: transparent;
     font-weight: bold;
+  }
+}
+
+.banner-content3 {
+  flex-grow: 1;
+  padding: 50px;
+
+  .icons1 {
+    background-image: url('../images/icons/banner/camera.png');
+    @extend %icons-rightmar-shared;
+  }
+
+  .icons2 {
+    background-image: url('../images/icons/banner/glass.png');
+    @extend %icons-leftmar-shared;
+  }
+
+  .icons3 {
+    background-image: url('../images/icons/banner/calendar.png');
+    @extend %icons-rightmar-shared;
   }
 }
 
