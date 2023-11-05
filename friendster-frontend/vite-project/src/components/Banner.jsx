@@ -31,7 +31,7 @@ const Banner = () => {
       <div className="banner-content1">
         <div className="icons1"></div>
         <div className="icons2"></div>
-        <div className="icons1"></div>
+        <div className="icons3"></div>
       </div>
       <div className="banner-content2">
         <h1>
