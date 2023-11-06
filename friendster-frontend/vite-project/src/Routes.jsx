@@ -7,7 +7,7 @@ import Layout from './components/Layout';
 
 const Router = createBrowserRouter([
   {
-    path: "/",
+    path: "/*",
     element: <Layout />,
     children: [
       {
@@ -19,7 +19,7 @@ const Router = createBrowserRouter([
         element: <EventDetails />,
       },
       {
-        path: '/Results',
+        path: 'Results',
         element: <Results />,
       }
     ]
