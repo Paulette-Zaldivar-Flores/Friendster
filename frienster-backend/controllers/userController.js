@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const userService = require("../services/userService");
 const utils = require("../utils/utils");
-
+const admin = require("firebase-admin");
 // Create a new user
 const createUser = async (req, res) => {
     console.log("createUser");
@@ -39,9 +39,22 @@ const getUserByEmail = async (req, res) => {
 };
 
 // Add other user-related controller functions here as needed
+const login = async (req, res) => {
+  const { email, password } = req.body;
 
+  try {
+    // Call the user service to handle login logic
+    const idToken = await userService.loginUser(email, password);
+
+    res.status(200).json({ idToken });
+  } catch (error) {
+    console.error("Login error:", error);
+    res.status(401).json({ error: "Authentication failed" });
+  }
+};
 module.exports = {
   createUser,
+  login,
   getUserByEmail,
   // Add other user-related controller functions here as needed
 };
