@@ -1,0 +1,46 @@
+h2 {
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.flex-item {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100px; /* Increase the width of the icon container */
+  height: 100px; /* Increase the height of the icon container */
+}
+
+.icon {
+  max-width: 50%;
+  width: 50%; /* Adjust the icon width for the desired size */
+  height: auto; /* Maintain aspect ratio */
+  fill: rgb(127, 91, 204);
+  color: rgb(127, 91, 204);
+}
+
+@media (max-width: 768px) {
+  /* Media queries can be adjusted as needed for responsiveness */
+}
