@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 const EventDetail = () => {
   const { id } = useParams();
+  console.log('id:', id);
 
   const eventDetails = {
     1: { title: 'Lady Gaga', description: 'Live Concert' },
