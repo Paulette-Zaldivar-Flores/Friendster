@@ -5,6 +5,7 @@ import Events from '../components/Events';
 import EventDetail from '../components/EventDetail';
 import HowItWorks from '../components/Howitworks';
 
+
 function Home() {
   return (
     <div className="home">
