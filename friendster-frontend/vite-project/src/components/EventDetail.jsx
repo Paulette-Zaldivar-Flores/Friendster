@@ -6,7 +6,7 @@ const EventDetail = () => {
   console.log('id:', id);
 
   const eventDetails = {
-    1: { title: 'Lady Gaga', description: 'Live Concert' },
+    // 1: { title: 'Lady Gaga', description: 'Live Concert' },
     2: { title: 'Event 2', description: 'Category of Event 2' },
     3: { title: 'Event 3', description: 'Category of Event 3' },
     4: { title: 'Event 4', description: 'Category of Event 4' },
@@ -20,9 +20,11 @@ const EventDetail = () => {
 
   if (!event) {
     return (
-      <div>
-        <p>Event not found</p>
-        <Link to="/">Back to Events</Link>
+      <div className="noevent-card">
+        <div className="noevent-content">
+          <h1 className="gradient-text">No Events Found</h1>
+          <Link className="pale-purple-btn" to="/">Back to Events</Link>
+        </div>
       </div>
     );
   }
