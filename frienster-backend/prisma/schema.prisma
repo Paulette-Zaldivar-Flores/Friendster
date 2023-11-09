@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model attendee {
+  id              Int       @id @default(autoincrement())
+  created         DateTime? @db.Timestamp(6)
+  user_id         Int?
+  ticket_class_id String?   @db.VarChar(255)
+  quantity        Int?
+  ticket_status   Boolean?
+  event_id        String?   @db.VarChar(255)
+  order_id        String?   @db.VarChar(255)
+  invited_by      String?   @db.VarChar(255)
+}
+
+model category {
+  id       Int    @id @default(autoincrement())
+  name     String @db.VarChar(255)
+  parentid Int?
+}
+
+model currency {
+  currency_id   Int     @id @default(autoincrement())
+  currency_name String?
+  code          String?
+}
+
+model event {
+  id              Int           @id @default(autoincrement())
+  name            String?
+  summary         String?
+  description     String?
+  url             String?       @db.VarChar(255)
+  starttime       DateTime?     @db.Timestamptz(6)
+  endtime         DateTime?     @db.Timestamptz(6)
+  created         DateTime?     @db.Timestamp(6)
+  changed         DateTime?     @db.Timestamp(6)
+  published       DateTime?     @db.Timestamp(6)
+  currency        String?       @db.VarChar(3)
+  online_event    Boolean?
+  hide_start_date Boolean?
+  hide_end_date   Boolean?
+  capacity        Int?
+  age_restriction String?       @db.VarChar(50)
+  organization_id Int?
+  status          event_status?
+  venue_id        Int?
+}
+
+model event_category {
+  event_category_id Int  @id @default(autoincrement())
+  event_id          Int?
+  category_id       Int?
+}
+
+model orders {
+  order_id   Int       @id @default(autoincrement())
+  created    DateTime? @db.Timestamp(6)
+  name       String?
+  email      String?
+  event_id   String?   @db.VarChar(255)
+  promo_code String?
+  status     String?
+}
+
+model organization {
+  id            Int     @id @default(autoincrement())
+  name          String?
+  description   String?
+  contact_email String? @db.VarChar(255)
+}
+
+model ticket_class {
+  id               Int      @id @default(autoincrement())
+  name             String?
+  description      String?
+  cost             Float?
+  currency_id      Int?
+  donation         Boolean?
+  free             Boolean?
+  minimum_quantity Int?
+  maximum_quantity Int?
+  on_sale_status   String?
+}
+
+model users {
+  id            Int     @id @default(autoincrement())
+  user_id       String? @db.VarChar(255)
+  name          String  @db.VarChar(255)
+  email         String  @unique @db.VarChar(255)
+  password_hash String  @db.VarChar(255)
+}
+
+model venue {
+  id              Int      @id @default(autoincrement())
+  name            String?
+  address         String?
+  age_restriction String?  @db.VarChar(50)
+  capacity        Int?
+  latitude        Decimal? @db.Decimal(10, 6)
+  longitude       Decimal? @db.Decimal(10, 6)
+}
+
+enum event_status {
+  draft
+  live
+  started
+  ended
+  completed
+  canceled
+}

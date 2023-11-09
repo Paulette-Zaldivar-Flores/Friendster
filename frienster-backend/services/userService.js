@@ -52,6 +52,20 @@ const findUserByEmail = async (email) => {
     throw error;
   }
 };
+// Function to handle user login
+async function loginUser(email, password) {
+  try {
+    // Use Firebase Authentication to sign in the user
+    const user = await admin.auth().getUserByEmail(email);
+
+    // If the sign-in is successful, generate an ID token for the user
+    const idToken = await admin.auth().createCustomToken(user.uid);
+
+    return idToken;
+  } catch (error) {
+    throw error;
+  }
+}
 
 const testDatabaseConnection = async () => {
   try {
@@ -64,7 +78,7 @@ const testDatabaseConnection = async () => {
 
 module.exports = {
   createUser,
-  findUserByEmail,
+  findUserByEmail,loginUser,
   testDatabaseConnection,
   // Add other user-related functions here as needed
 };
