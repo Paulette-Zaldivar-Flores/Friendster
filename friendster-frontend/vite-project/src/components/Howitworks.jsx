@@ -9,17 +9,20 @@ const HowItWorks = () => {
             <div className="flex-item">
               </div>
         <div className="flex-item">
-          <img src="/src/assets/images/icons/signup.png" alt="signup" className="icon" />
+        <i className="fa-solid fa-user"></i>
+        <p className ="flexitem-p">Sign Up</p>
         </div>
         <div className="flex-item">
           </div>
         <div className="flex-item">
-          <img src="/src/assets/images/icons/searchglass.png" alt="search" className="icon" />
+        <i className="fa-solid fa-magnifying-glass"></i>
+        <p className ="flexitem-p">Search</p>
         </div>
         <div className="flex-item">
           </div>
-             <div className="flex-item">
-          <img src="/src/assets/images/icons/share.png" alt="share" className="icon" />
+            <div className="flex-item">
+              <i className="fa-solid fa-paper-plane"></i>
+              <p className ="flexitem-p">Share</p>
         </div>
         <div className="flex-item">
           </div>
