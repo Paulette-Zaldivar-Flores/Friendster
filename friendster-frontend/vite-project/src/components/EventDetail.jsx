@@ -3,10 +3,9 @@ import { Link, useParams } from 'react-router-dom';
 
 const EventDetail = () => {
   const { id } = useParams();
-  console.log('id:', id);
 
   const eventDetails = {
-    // 1: { title: 'Lady Gaga', description: 'Live Concert' },
+    1: { title: 'Lady Gaga', description: 'Live Concert' },
     2: { title: 'Event 2', description: 'Category of Event 2' },
     3: { title: 'Event 3', description: 'Category of Event 3' },
     4: { title: 'Event 4', description: 'Category of Event 4' },

@@ -13,7 +13,7 @@ function Home() {
       <HowItWorks/>
       <Routes>
         <Route index element={<Events />} />
-        <Route path="events/:id" element={<EventDetail />} />
+        <Route path='events/:id' element={<EventDetail />} />
       </Routes>
     </div>
   );
