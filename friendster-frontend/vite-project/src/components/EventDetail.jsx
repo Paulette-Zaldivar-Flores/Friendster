@@ -5,7 +5,7 @@ const EventDetail = () => {
   const { id } = useParams();
 
   const eventDetails = {
-    1: { title: 'Lady Gaga', description: 'Live Concert' },
+    1: { title: 'Lady Gaga', description: 'A high-energy spectacle featuring her chart-topping hits, avant-garde fashion, and powerful vocals.' },
     2: { title: 'Event 2', description: 'Category of Event 2' },
     3: { title: 'Event 3', description: 'Category of Event 3' },
     4: { title: 'Event 4', description: 'Category of Event 4' },
@@ -30,12 +30,38 @@ const EventDetail = () => {
 
   return (
     <div className="container">
-      <h3>Event Details</h3>
-      <h5 className="card-title">{event.title}</h5>
-      <p className="card-text">{event.description}</p>
-      <Link to="/">Back to Events</Link>
+    <div className="banner">
+      <h1>Lady Gaga</h1>
     </div>
-  );
+    <div className="row">
+      {/* First Column */}
+      <div className="col-md-8">
+        <div className="event-details">
+          <p>Saturday November 12, 2023</p>
+          <h2>{event.title}</h2>
+          <h5>Description</h5>
+          <p>{event.description}</p>
+          <h5>Date and Time</h5>
+          <p>Saturday November 12, 2023 @ 5:30pm</p>
+          <h5>Location</h5>
+          <p>Orpheum Theatre, 842 S Broadway, Los Angeles, CA 90014, United States</p>
+          <Link to="/">Back to Events</Link>
+        </div>
+      </div>
+      <div className="col-md-4">
+        <div className="button-group">
+          <button className="btn btn-success mx-2">Like</button>
+          <button className="btn btn-primary">Share</button>
+        </div>
+        <div className="ticket-details">
+          <h5>Price</h5>
+          <p>$50.00</p>
+          <button className="btn btn-danger">Buy Tickets</button>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 };
 
 export default EventDetail;
