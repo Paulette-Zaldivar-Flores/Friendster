@@ -1,0 +1,19 @@
+.event-details-banner {
+  height: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-image: url(../images/lady_gaga.png);
+  background-size: cover;
+  background-position: 0% 50%;
+  filter: brightness(70%);
+}
+
+@media only screen and (max-width: 575px) {
+  .event-details-banner {
+      height: 300px;
+      background-position: center;
+  }
+}
