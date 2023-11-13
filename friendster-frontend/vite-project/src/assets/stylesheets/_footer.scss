@@ -10,8 +10,8 @@
 
   a {
     text-decoration: none;
-    color: #e395ffec;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.512);
+    color: #e9d7f0ec;
+    text-shadow: 0px 0px 10px #00000083;
 
     &:hover {
       color: #bfb9b9;
@@ -19,14 +19,14 @@
   }
 
   .pale-purple-btn {
-    background-color: rgba(227, 149, 255, 0.883);
+    background-color: #f0c6ffe1;
     font-weight: 600;
     color: #7533e8;
-    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    text-shadow: 0px 0px 0px #00000000;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.461);
     border: 0px rgba(255, 255, 255, 0);
     &:hover {
-      background-color: #bfb9b9;
+      background-color: #f39cee;
       color: #8539ff;
     }
 
@@ -106,7 +106,7 @@ hr.rounded {
 .media-body {
   font-size: 16px;
   margin-bottom: 20px;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.512);
+  text-shadow: 0px 0px 10px #00000083;
   a {
     font-weight: 600;
   }
@@ -116,7 +116,7 @@ hr.rounded {
   }
 
   span {
-    color: #b966d7;;
+    color: #a9a7aa;;
   }
 }
 
