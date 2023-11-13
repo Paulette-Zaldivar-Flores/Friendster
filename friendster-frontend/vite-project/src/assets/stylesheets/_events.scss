@@ -9,11 +9,15 @@
   color: white;
   height: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
 
   &:hover {
     transform: scale(1.05);
   }
 }
+
+
+
 
 .noevent-card {
   height: 100vh;
