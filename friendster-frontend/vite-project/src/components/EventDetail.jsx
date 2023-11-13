@@ -1,11 +1,21 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { FaHeart, FaShare } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const EventDetail = () => {
   const { id } = useParams();
 
   const eventDetails = {
-    1: { title: 'Lady Gaga', description: 'A high-energy spectacle featuring her chart-topping hits, avant-garde fashion, and powerful vocals.' },
+    1: {
+      title: 'Lady Gaga',
+      description: 'A high-energy spectacle featuring her chart-topping hits, avant-garde fashion, and powerful vocals.',
+      day: 'Saturday',
+      date: 'November 15, 2023',
+      time: '5:30 pm',
+      location: 'Orpheum Theatre, 842 S Broadway, Los Angeles, CA 90014, United States',
+      price: '50.00'
+  },
     2: { title: 'Event 2', description: 'Category of Event 2' },
     3: { title: 'Event 3', description: 'Category of Event 3' },
     4: { title: 'Event 4', description: 'Category of Event 4' },
@@ -29,38 +39,45 @@ const EventDetail = () => {
   }
 
   return (
-    <div className="container">
-    <div className="banner">
-      <h1>Lady Gaga</h1>
+    <>
+     <div className="event-details-banner">
     </div>
+    <div className="container">
     <div className="row">
-      {/* First Column */}
       <div className="col-md-8">
-        <div className="event-details">
-          <p>Saturday November 12, 2023</p>
+        <div className="event-details mt-3 ">
+          <p>{event.day} {event.date}</p>
           <h2>{event.title}</h2>
           <h5>Description</h5>
           <p>{event.description}</p>
           <h5>Date and Time</h5>
-          <p>Saturday November 12, 2023 @ 5:30pm</p>
+          <p>{event.day} {event.date} @ {event.time}</p>
           <h5>Location</h5>
-          <p>Orpheum Theatre, 842 S Broadway, Los Angeles, CA 90014, United States</p>
-          <Link to="/">Back to Events</Link>
+          <p>{event.location}</p>
+
         </div>
       </div>
       <div className="col-md-4">
-        <div className="button-group">
-          <button className="btn btn-success mx-2">Like</button>
-          <button className="btn btn-primary">Share</button>
-        </div>
+      <div className="button-group mt-3 mb-3">
+    <button className="btn btn-circle btn-success">
+    <FaHeart/>
+    </button>
+    <button className="btn btn-circle btn-primary mx-2">
+      <FaShare />
+    </button>
+  </div>
         <div className="ticket-details">
           <h5>Price</h5>
-          <p>$50.00</p>
-          <button className="btn btn-danger">Buy Tickets</button>
+          <p>${event.price}</p>
+          <button className="btn btn-danger mb-5">Buy Tickets</button>
         </div>
+        <Link className="pale-purple-link" to="/">
+      <FaArrowLeft /> Back to Events
+    </Link>
       </div>
     </div>
   </div>
+  </>
 );
 };
 

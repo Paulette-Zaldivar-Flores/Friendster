@@ -1,0 +1,43 @@
+.event-details-banner {
+  height: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-image: url(../images/lady_gaga.png);
+  background-size: cover;
+  background-position: 0% 50%;
+  filter: brightness(70%);
+}
+
+.btn-circle {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.pale-purple-link {
+  color: #c006f8;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+
+  &:hover{
+    color: #d186f4;
+
+  }
+}
+
+.pale-purple-link svg {
+  margin-right: 5px;
+}
+
+
+@media only screen and (max-width: 575px) {
+  .event-details-banner {
+      height: 300px;
+      background-position: center;
+  }
+}
