@@ -37,25 +37,4 @@
     font-size: 40px;
     margin: 20px;
   }
-
-  .pale-purple-btn {
-    text-decoration: none;
-    padding: 10px;
-    color:#9176fe;
-    border: 1px solid;
-    border-color: #7F5FFC;
-    background-color: #eae5ff;
-    border-radius: 30px;
-    transition: ease-in-out all .5s;
-
-    &:hover {
-      background-color: #8c6fff;
-      color: #ffffff;
-    }
-
-    &.active {
-      background-color: #8c6fff;
-      color: #ffffff;
-    }
-  }
 }

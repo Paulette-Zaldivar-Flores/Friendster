@@ -11,6 +11,9 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 
 $primary-color: #ffff;
 
@@ -48,4 +51,25 @@ body {
   -webkit-background-clip: text; /* For older versions of webkit browsers */
   color: transparent;
   font-weight: bold;
+}
+
+.pale-purple-btn {
+  text-decoration: none;
+  padding: 10px;
+  color:#9176fe;
+  border: 1px solid;
+  border-color: #7F5FFC;
+  background-color: #eae5ff;
+  border-radius: 30px;
+  transition: ease-in-out all .5s;
+
+  &:hover {
+    background-color: #8c6fff;
+    color: #ffffff;
+  }
+
+  &.active {
+    background-color: #8c6fff;
+    color: #ffffff;
+  }
 }
