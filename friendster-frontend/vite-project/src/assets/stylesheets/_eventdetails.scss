@@ -11,6 +11,30 @@
   filter: brightness(70%);
 }
 
+.btn-circle {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.pale-purple-link {
+  color: #c006f8;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+
+  &:hover{
+    color: #d186f4;
+
+  }
+}
+
+.pale-purple-link svg {
+  margin-right: 5px;
+}
+
+
 @media only screen and (max-width: 575px) {
   .event-details-banner {
       height: 300px;

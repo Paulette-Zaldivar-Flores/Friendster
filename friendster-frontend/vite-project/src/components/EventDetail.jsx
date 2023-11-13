@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { FaHeart, FaShare } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const EventDetail = () => {
   const { id } = useParams();
@@ -12,8 +14,7 @@ const EventDetail = () => {
       date: 'November 15, 2023',
       time: '5:30 pm',
       location: 'Orpheum Theatre, 842 S Broadway, Los Angeles, CA 90014, United States',
-      price: '50.00',
-      banner: '../assets/images/lady_gaga.png'
+      price: '50.00'
   },
     2: { title: 'Event 2', description: 'Category of Event 2' },
     3: { title: 'Event 3', description: 'Category of Event 3' },
@@ -44,7 +45,7 @@ const EventDetail = () => {
     <div className="container">
     <div className="row">
       <div className="col-md-8">
-        <div className="event-details">
+        <div className="event-details mt-3 ">
           <p>{event.day} {event.date}</p>
           <h2>{event.title}</h2>
           <h5>Description</h5>
@@ -57,16 +58,22 @@ const EventDetail = () => {
         </div>
       </div>
       <div className="col-md-4">
-        <div className="button-group mt-3 mb-3">
-          <button className="btn btn-success">Like</button>
-          <button className="btn btn-primary mx-2">Share</button>
-        </div>
+      <div className="button-group mt-3 mb-3">
+    <button className="btn btn-circle btn-success">
+    <FaHeart/>
+    </button>
+    <button className="btn btn-circle btn-primary mx-2">
+      <FaShare />
+    </button>
+  </div>
         <div className="ticket-details">
           <h5>Price</h5>
           <p>${event.price}</p>
           <button className="btn btn-danger mb-5">Buy Tickets</button>
         </div>
-        <Link to="/">Back to Events</Link>
+        <Link className="pale-purple-link" to="/">
+      <FaArrowLeft /> Back to Events
+    </Link>
       </div>
     </div>
   </div>
