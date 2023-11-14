@@ -17,10 +17,10 @@ function Footer() {
             <div className="footer-widget">
               <h3>Contact Info</h3>
               <div className="footer-widget-content">
-                <p className="nomar"><span class="material-symbols-outlined">mail</span></p>
+                <p className="nomar"><span className="material-symbols-outlined">mail</span></p>
                 <a href="mailto:sales@example.com" className="contact-link">events@friendster.com</a>
                 <a href="mailto:support@example.com" className="contact-link red padding-botm">support@friendster.com</a>
-                <p className="nomar"><span class="material-symbols-outlined">call</span></p>
+                <p className="nomar"><span className="material-symbols-outlined">call</span></p>
                 <a href="tel:0121234" className="contact-link marbtm40">(123) 456-789</a>
               </div>
               <hr className="rounded"></hr>
@@ -83,7 +83,7 @@ function Footer() {
                     <p><a href="#">Amazing Event 2</a></p>
                     <span>{today}</span>
                   </div>
-                  <btn><a href="#" className="pale-purple-btn">See More</a></btn>
+                  <a href="#" className="pale-purple-btn">See More</a>
                 </div>
               </div>
             </div>

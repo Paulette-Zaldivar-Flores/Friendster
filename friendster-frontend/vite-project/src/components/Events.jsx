@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 const Events = () => {
   const eventDetails = [
     { id: 1, title: 'Lady Gaga', description: 'Live Concert' },
-    { id: 2, title: 'Event 2', description: 'Category of Event 2' },
-    { id: 3, title: 'Event 2', description: 'Category of Event 2' },
-    { id: 4, title: 'Event 2', description: 'Category of Event 2' },
-    { id: 5, title: 'Event 2', description: 'Category of Event 2' },
-    { id: 6, title: 'Event 2', description: 'Category of Event 2' },
-    { id: 7, title: 'Event 2', description: 'Category of Event 2' },
-    { id: 8, title: 'Event 2', description: 'Category of Event 2' },
+    { id: 2, title: 'Artic Monkeys', description: 'Live Concert' },
+    { id: 3, title: 'Imagine Dragons', description: 'Live Concert' },
+    { id: 4, title: 'Foo Fighters', description: 'Live Concert' },
+    { id: 5, title: 'The Black Keys', description: 'Live Concert' },
+    { id: 6, title: 'Twenty One Pilots', description: 'Live Concert' },
+    { id: 7, title: 'Muse', description: 'Live Concert' },
+    { id: 8, title: 'Radiohead', description: 'Live Concert' },
   ];
 
   return (
