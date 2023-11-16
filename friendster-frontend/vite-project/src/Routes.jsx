@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from "react-router-dom";
 import Home from './pages/Home';
-import Results from './pages/Results';
+import MyEvents from './pages/MyEvents';
 import EventDetails from './components/EventDetail';
 import Layout from './components/Layout';
 
@@ -19,8 +19,8 @@ const Router = createBrowserRouter([
         element: <EventDetails />,
       },
       {
-        path: 'Results',
-        element: <Results />,
+        path: 'MyEvents',
+        element: <MyEvents />,
       }
     ]
   }

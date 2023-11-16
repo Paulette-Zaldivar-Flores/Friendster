@@ -22,7 +22,7 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto d-flex center-links">
             <Nav.Link href="/" className = "ms-3">Home</Nav.Link>
-            <Nav.Link href="/Results" className = "ms-3">Results</Nav.Link>
+            <Nav.Link href="/MyEvents" className = "ms-3">My Events</Nav.Link>
             <Button variant="success" className = "ms-3">Log Out</Button>
           </Nav>
         </Navbar.Collapse>
