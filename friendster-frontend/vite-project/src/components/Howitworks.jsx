@@ -10,7 +10,7 @@ const HowItWorks = () => {
               </div>
         <div className="flex-item">
         <i className="fa-solid fa-user"></i>
-        <p className ="flexitem-p">Sign Up</p>
+        <p className ="flexitem-p no-wrap">Sign Up</p>
         </div>
         <div className="flex-item">
           </div>

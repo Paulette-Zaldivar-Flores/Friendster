@@ -14,21 +14,23 @@ const Events = () => {
   ];
 
   return (
-    <div className="container mb-2">
-      <h3>8 Events near you...</h3>
-      <div className="row">
-        {eventDetails.map((event) => (
-          <div className="col-md-3 mb-4" key={event.id}>
-            <Link to={`/events/${event.id}`} className={`card ${event.img}`}>
-              <div className="card-body d-flex flex-column">
-                <div className="mt-auto">
-                  <h5 className="card-title">{event.title}</h5>
-                  <p className="card-text">{event.description}</p>
+    <div className="d-flex flex-wrap flex-row m-3">
+      <div className="container align-self-center mb-2">
+        <h3>8 Events near you...</h3>
+        <div className="row">
+          {eventDetails.map((event) => (
+            <div className="col-md-3 mb-4" key={event.id}>
+              <Link to={`/events/${event.id}`} className={`card ${event.img}`}>
+                <div className="card-body d-flex flex-column">
+                  <div className="mt-auto">
+                    <h5 className="card-title">{event.title}</h5>
+                    <p className="card-text">{event.description}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </div>
-        ))}
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
