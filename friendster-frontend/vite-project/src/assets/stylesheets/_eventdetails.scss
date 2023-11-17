@@ -1,14 +1,52 @@
-.event-details-banner {
-  height: 600px;
+%event-details-banner {
+  height: 80vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  background-image: url(../images/lady_gaga.png);
-  background-size: cover;
-  background-position: 0% 50%;
+  background-size: 100% 100%;
   filter: brightness(70%);
+}
+
+.lady-gaga {
+  @extend %event-details-banner;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0)), url('../images/lady_gaga.png');
+}
+
+.arctic-monkeys {
+  @extend %event-details-banner;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0)), url('../images/arctic_monkeys.jpg');
+}
+
+.imag-dragons {
+  @extend %event-details-banner;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0)), url('../images/imagine_dragons.jpg');
+}
+
+.foo-fight {
+  @extend %event-details-banner;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0)), url('../images/foo_fighters.jpg');
+}
+
+.black-keys {
+  @extend %event-details-banner;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0)), url('../images/the_black_keys.jpg');
+}
+
+.twtyone {
+  @extend %event-details-banner;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0)), url('../images/Twenty-One-Pilots.png');
+}
+
+.muse {
+  @extend %event-details-banner;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0)), url('../images/muse.jpg');
+}
+
+.radiohead {
+  @extend %event-details-banner;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0)), url('../images/radiohead.jpg');
 }
 
 .btn-circle {
@@ -35,9 +73,15 @@
 }
 
 
-@media only screen and (max-width: 575px) {
-  .event-details-banner {
-      height: 300px;
-      background-position: center;
+@media only screen and (min-width: 1200px) {
+  %event-details-banner {
+    background-size: 100% 130%;
+    background-position: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  %event-details-banner {
+    height: 50vh;
   }
 }

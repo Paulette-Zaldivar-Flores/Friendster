@@ -3,8 +3,9 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  background-color: rgb(247, 247, 183);
+  background: linear-gradient(to bottom, rgb(254, 251, 221), rgb(250, 232, 254));
   padding: 30px;
+  margin-bottom: 30px;
 }
 
 .title {
@@ -14,8 +15,6 @@
   margin-bottom: 20px;
   color: rgb(71, 69, 69);
   margin-bottom: 40px;
-
-
 }
 
 .flex-item {
@@ -29,9 +28,13 @@
 
 }
 
+.no-wrap{
+  white-space: nowrap
+}
+
 .fa-solid{
   color: #7F5FFC;
-  font-size: 30px;
+  font-size: 50px;
 }
 
 .icon-container {
