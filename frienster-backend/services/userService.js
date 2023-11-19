@@ -1,14 +1,14 @@
 const pool = require("../configs/db"); // Import your PostgreSQL database connection pool here
 const admin = require("firebase-admin");
 // Create a new user in the database
-const createUser = async (name, email, passwordHash) => {
+const createUser = async (name, email, password) => {
   try {
-    const userId = await createFirebaseUser(email, passwordHash);
+    const userRecord = await createFirebaseUser(email, password);
+    console.log("userRecord", userRecord);
 
     // Step 2: Insert user data into the PostgreSQL database
-    await insertUserIntoDatabase(userId, name, email, passwordHash);
-
-    return userId; // Return the Firebase UID of the newly created user
+    await insertUserIntoDatabase(userRecord.uid, name, email);
+    return userRecord.uid; // Return the Firebase UID of the newly created user
   } catch (error) {
     throw error;
   }
@@ -21,17 +21,17 @@ const createFirebaseUser = async (email, password) => {
       password: password,
     });
 
-    return userRecord.uid; // Return the Firebase UID of the newly created user
+    return userRecord; // Return the Firebase UID of the newly created user
   } catch (error) {
     throw error;
   }
 };
 // Function to insert user data into PostgreSQL database
-const insertUserIntoDatabase = async (userId, name, email, passwordHash) => {
+const insertUserIntoDatabase = async (userId, name, email) => {
   try {
     const query =
-      "INSERT INTO users (user_id, name, email,password_hash) VALUES ($1, $2, $3, $4)";
-    const values = [userId, name, email, passwordHash];
+      "INSERT INTO users (user_id, name, email) VALUES ($1, $2, $3)";
+    const values = [userId, name, email];
 
     await pool.query(query, values); // Insert user data into the database
   } catch (error) {

@@ -6,5 +6,6 @@ const  authenticateUser  = require("../middleware/auth");
 
 // Create a new event
 //router.post('/create', authenticateUser, eventController.createEvent);
-router.post("/create",  eventController.createEvent);
+
+router.post("/create", authenticateUser, eventController.createEvent);
 module.exports = router;

@@ -8,11 +8,7 @@ const createUser = async (req, res) => {
     console.log("createUser");
   try {
     const { name, email, password } = req.body;
-
-    // Hash the user's password (you should use a password hashing library)
-    const passwordHash = await utils.hashPassword(password);
-
-    const user = await userService.createUser(name, email, passwordHash);
+    const user = await userService.createUser(name, email, password);
 
     res.status(201).json({ user });
   } catch (error) {
@@ -44,9 +40,9 @@ const login = async (req, res) => {
 
   try {
     // Call the user service to handle login logic
-    const idToken = await userService.loginUser(email, password);
+    const token = await userService.loginUser(email, password);
 
-    res.status(200).json({ idToken });
+    res.status(200).json({ token });
   } catch (error) {
     console.error("Login error:", error);
     res.status(401).json({ error: "Authentication failed" });
