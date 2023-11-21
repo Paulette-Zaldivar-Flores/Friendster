@@ -11,7 +11,7 @@ const authenticateUser  = require("../middleware/auth");
 // Get a user by email
 router.get("/:email", authenticateUser, userController.getUserByEmail);
 router.post("/create", userController.createUser);
-router.post("/login", userController.login);
+
 
 // Add other user-related routes here as needed
 

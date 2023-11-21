@@ -1,13 +1,36 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import LoginImage from '../assets/Friendster.png'
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
     // Add your login logic here
-    console.log('Logging in with:', username, password);
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Access the user and the ID token
+        const user = userCredential.user;
+        return user.getIdToken();
+      })
+      .then((idToken) => {
+        // Set the ID token to local storage
+        localStorage.setItem("userToken", idToken);
+
+        console.log("ID Token:", idToken);
+       
+         navigate("/Home");
+        // Further actions after successful sign-in
+      })
+      .catch((error) => {
+        console.error("Error signing in:", error);
+      });
+    console.log('Logging in with:', email, password);
   };
 
   return (
@@ -23,15 +46,15 @@ const Login = () => {
 
           <form>
             <div className="mb-3">
-              <label htmlFor="username" className="form-label">
-                Username
+              <label htmlFor="email" className="form-label">
+                Email
               </label>
               <input
                 type="text"
                 className="form-control"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="mb-3">
