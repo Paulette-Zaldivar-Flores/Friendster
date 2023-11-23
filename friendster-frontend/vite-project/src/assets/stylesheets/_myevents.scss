@@ -1,0 +1,18 @@
+.user-image{
+  width: 100%;
+  height:100%;
+  border-radius: 1rem;
+  border: 0.5vmin solid #05060f;
+  box-shadow: 0.4rem 0.4rem #05060f;
+  overflow: hidden;
+  color: #000000;
+}
+
+.icon{
+  color: rgb(157, 14, 157);
+  cursor: pointer;
+
+  &:hover{
+    color:rgb(188, 67, 188)
+  }
+}

@@ -1,4 +1,6 @@
 import React from 'react';
+import User from '../assets/images/user.jpg'
+import { FaCalendarAlt, FaFlag, FaBookmark, FaHistory } from 'react-icons/fa';
 
 function MyEvents() {
   const interests = ["Music", "Sports", "Art", "Technology", "Food", "Travel", "Fashion", "Fitness"];
@@ -7,26 +9,38 @@ function MyEvents() {
     <div className="container-fluid p-3">
       <div className="row">
         <div className="col-md-4">
+          <div className='d-flex justify-content-center align-items-center'>
           <img
-            src="path/to/user-image.jpg"
+            src= { User }
             alt="User"
-            className="img-fluid rounded-circle mt-3"
-            style={{ maxWidth: '100%', height: 'auto' }}
+            className="img-fluid user-image"
+            style={{ width: '300px', height: '300px', borderRadius: '50%'}}
           />
-          <div className="card mt-3">
-            <div className="card-body">
-              <h5 className="card-title">User Links</h5>
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Attending</li>
-                <li className="list-group-item">Hosting</li>
-                <li className="list-group-item">Saved</li>
-                <li className="list-group-item">Past Events</li>
-              </ul>
-            </div>
           </div>
+          <div className="card mt-3">
+              <div className="card-body">
+                <h5 className="card-title">Events I am...</h5>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <FaCalendarAlt className="icon" /> Attending
+                  </li>
+                  <li className="list-group-item">
+                    <FaFlag className="icon" /> Hosting
+                  </li>
+                  <li className="list-group-item">
+                    <FaBookmark className="icon" /> Saved
+                  </li>
+                  <li className="list-group-item">
+                    <FaHistory className="icon" /> Past Events
+                  </li>
+                </ul>
+              </div>
+            </div>
           <div className="card mt-3">
             <div className="card-body">
               <h5 className="card-title">Calendar</h5>
+              <label htmlFor="datepicker">Select a date:</label>
+              <input type="date" id="datepicker" name="datepicker" />
             </div>
           </div>
         </div>

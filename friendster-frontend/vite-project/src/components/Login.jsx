@@ -5,7 +5,7 @@ import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -23,8 +23,8 @@ const Login = () => {
         localStorage.setItem("userToken", idToken);
 
         console.log("ID Token:", idToken);
-       
-         navigate("/Home");
+
+        navigate("/Home");
         // Further actions after successful sign-in
       })
       .catch((error) => {
