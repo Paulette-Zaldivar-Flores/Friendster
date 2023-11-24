@@ -59,6 +59,6 @@ To get started with Friendster, follow these steps:
 
 ## Developers
 
-Tamana Rahman and Paulette Zaldivar-Flores
+Tamana Rahman, <a href="https://paulettethedev.com/" target="blank" rel="About-Me"> Paulette Zaldivar Flores</a> and Sarah Rollins
 
 
