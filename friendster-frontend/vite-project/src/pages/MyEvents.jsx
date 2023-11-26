@@ -52,7 +52,7 @@ function MyEvents() {
               <h5 className="card-title">My Interests</h5>
               <div className="d-flex flex-wrap">
                 {interests.map((interest, index) => (
-                  <span key={index} className="badge bg-custom-color rounded-pill m-1 p-2">{interest}</span>
+                  <span key={index} className="badge bg-custom-color rounded-pill m-1 p-3">{interest}</span>
                 ))}
               </div>
             </div>
