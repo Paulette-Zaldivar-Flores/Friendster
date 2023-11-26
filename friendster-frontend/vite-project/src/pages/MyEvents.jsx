@@ -1,6 +1,7 @@
 import React from 'react';
 import User from '../assets/images/user.jpg'
 import { FaCalendarAlt, FaFlag, FaBookmark, FaHistory } from 'react-icons/fa';
+import Arctic from '../assets/images/arctic_monkeys.jpg'
 
 function MyEvents() {
   const interests = ["Music", "Sports", "Art", "Technology", "Food", "Travel", "Fashion", "Fitness"];
@@ -48,46 +49,72 @@ function MyEvents() {
         <div className="col-md-8">
           <div className="card p-3 mb-3">
             <div className="card-body">
-              <h5 className="card-title">User Interests</h5>
+              <h5 className="card-title">My Interests</h5>
               <div className="d-flex flex-wrap">
                 {interests.map((interest, index) => (
-                  <span key={index} className="badge bg-primary rounded-pill m-1">{interest}</span>
+                  <span key={index} className="badge bg-custom-color rounded-pill m-1 p-2">{interest}</span>
                 ))}
               </div>
             </div>
           </div>
-
-
           <div className="card-deck">
-            <div className="card">
-              <img src="path/to/event-image1.jpg" className="card-img-top" alt="Event 1" />
-              <div className="card-body">
-                <h5 className="card-title">Event 1</h5>
-                <p className="card-text">Description for Event 1.</p>
+            <div className="card shadow-sm mb-3">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src= { Arctic } className="img-fluid rounded-start" alt="Event 1" />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">Arctic Monkeys</h5>
+                    <p className="card-text">Rock out to the indie and alternative tunes of Arctic Monkeys in a high-energy live performance.</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="card">
-              <img src="path/to/event-image2.jpg" className="card-img-top" alt="Event 2" />
-              <div className="card-body">
-                <h5 className="card-title">Event 2</h5>
-                <p className="card-text">Description for Event 2.</p>
+
+            <div className="card shadow-sm mb-3">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src="path/to/event-image2.jpg" className="img-fluid rounded-start" alt="Event 2" />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">Event 2</h5>
+                    <p className="card-text">Description for Event 2.</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="card">
-              <img src="path/to/event-image3.jpg" className="card-img-top" alt="Event 3" />
-              <div className="card-body">
-                <h5 className="card-title">Event 3</h5>
-                <p className="card-text">Description for Event 3.</p>
+
+            <div className="card shadow-sm mb-3">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src="path/to/event-image3.jpg" className="img-fluid rounded-start" alt="Event 3" />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">Event 3</h5>
+                    <p className="card-text">Description for Event 3.</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="card">
-              <img src="path/to/event-image4.jpg" className="card-img-top" alt="Event 4" />
-              <div className="card-body">
-                <h5 className="card-title">Event 4</h5>
-                <p className="card-text">Description for Event 4.</p>
+
+            <div className="card shadow-sm mb-3" >
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src="path/to/event-image4.jpg" className="img-fluid rounded-start" alt="Event 4" />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">Event 4</h5>
+                    <p className="card-text">Description for Event 4.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
