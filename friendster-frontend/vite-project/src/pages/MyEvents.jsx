@@ -66,7 +66,7 @@ function MyEvents() {
                 <div className="col-md-8">
                   <div className="card-body">
                     <h5 className="card-title">Arctic Monkeys</h5>
-                    <p className="card-text">Rock out to the indie and alternative tunes of Arctic Monkeys in a high-energy live performance.</p>
+                    <p className="card-text"><span className = "event-date">Friday December 8, 2023 </span> <br/>Rock out to the indie and alternative tunes of Arctic Monkeys in a high-energy live performance.</p>
                   </div>
                 </div>
               </div>
