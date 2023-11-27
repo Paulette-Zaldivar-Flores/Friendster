@@ -1,6 +1,7 @@
 import React from 'react';
 import User from '../assets/images/user.jpg'
 import { FaCalendarAlt, FaFlag, FaBookmark, FaHistory } from 'react-icons/fa';
+import { MdAdd } from 'react-icons/md';
 import Arctic from '../assets/images/arctic_monkeys.jpg'
 
 function MyEvents() {
@@ -32,8 +33,9 @@ function MyEvents() {
                     <FaBookmark className="icon" /> Saved
                   </li>
                   <li className="list-group-item">
-                    <FaHistory className="icon" /> Past Events
-                  </li>
+                    <MdAdd className="icon" /> <a href="#" >Create Event
+                    </a>
+                      </li>
                 </ul>
               </div>
             </div>
