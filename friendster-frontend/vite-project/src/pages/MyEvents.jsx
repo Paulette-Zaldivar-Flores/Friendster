@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaCalendarAlt, FaFlag, FaBookmark, FaClock, FaMapMarkerAlt, FaMoneyBill } from 'react-icons/fa';
+import { MdAdd } from 'react-icons/md';
+import Arctic from '../assets/images/arctic_monkeys.jpg';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import User from '../assets/images/user.jpg'
-import { FaCalendarAlt, FaFlag, FaBookmark, FaHistory } from 'react-icons/fa';
-import Arctic from '../assets/images/arctic_monkeys.jpg'
 
 function MyEvents() {
   const interests = ["Music", "Sports", "Art", "Technology", "Food", "Travel", "Fashion", "Fitness"];
+  const [showCreateEventModal, setShowCreateEventModal] = useState(false);
+
+  const openCreateEventModal = () => {
+    setShowCreateEventModal(true);
+    // Additional logic for handling the modal can be added here
+  };
+
+  const closeCreateEventModal = () => {
+    setShowCreateEventModal(false);
+  };
   return (
     <div className = "MyEvents">
     <div className="container-fluid p-3">
@@ -32,8 +45,9 @@ function MyEvents() {
                     <FaBookmark className="icon" /> Saved
                   </li>
                   <li className="list-group-item">
-                    <FaHistory className="icon" /> Past Events
-                  </li>
+                    <MdAdd className="icon" /> <a href="#" className= "create-event-link" onClick={ openCreateEventModal } >Create Event
+                    </a>
+                      </li>
                 </ul>
               </div>
             </div>
@@ -118,7 +132,62 @@ function MyEvents() {
         </div>
       </div>
     </div>
+
+
+    <Modal show={showCreateEventModal} onHide={closeCreateEventModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Create Event</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form>
+            <div className="mb-3">
+              <label htmlFor="eventName" className="form-label">
+                Event Name
+              </label>
+              <input type="text" className="form-control" id="eventName" placeholder="Enter event name" />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="eventDate" className="form-label">
+                <FaCalendarAlt className="me-2" />
+                Event Date
+              </label>
+              <input type="date" className="form-control" id="eventDate" />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="eventTime" className="form-label">
+                <FaClock className="me-2" />
+                Event Time
+              </label>
+              <input type="time" className="form-control" id="eventTime" />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="eventLocation" className="form-label">
+                <FaMapMarkerAlt className="me-2" />
+                Event Location
+              </label>
+              <input type="text" className="form-control" id="eventLocation" placeholder="Enter event location" />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="eventPrice" className="form-label">
+                <FaMoneyBill className="me-2" />
+                Event Price
+              </label>
+              <input type="text" className="form-control" id="eventPrice" placeholder="Enter event price" />
+            </div>
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={closeCreateEventModal}>
+            Close
+          </Button>
+          <Button variant="info">
+            Save Event
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
+
+
   );
 }
 
