@@ -1,11 +1,23 @@
-import React from 'react';
-import User from '../assets/images/user.jpg'
-import { FaCalendarAlt, FaFlag, FaBookmark, FaHistory } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaCalendarAlt, FaFlag, FaBookmark } from 'react-icons/fa';
 import { MdAdd } from 'react-icons/md';
-import Arctic from '../assets/images/arctic_monkeys.jpg'
+import Arctic from '../assets/images/arctic_monkeys.jpg';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import User from '../assets/images/user.jpg'
 
 function MyEvents() {
   const interests = ["Music", "Sports", "Art", "Technology", "Food", "Travel", "Fashion", "Fitness"];
+  const [showCreateEventModal, setShowCreateEventModal] = useState(false);
+
+  const openCreateEventModal = () => {
+    setShowCreateEventModal(true);
+    // Additional logic for handling the modal can be added here
+  };
+
+  const closeCreateEventModal = () => {
+    setShowCreateEventModal(false);
+  };
   return (
     <div className = "MyEvents">
     <div className="container-fluid p-3">
@@ -33,7 +45,7 @@ function MyEvents() {
                     <FaBookmark className="icon" /> Saved
                   </li>
                   <li className="list-group-item">
-                    <MdAdd className="icon" /> <a href="#" className= "create-event-link" >Create Event
+                    <MdAdd className="icon" /> <a href="#" className= "create-event-link" onClick={ openCreateEventModal } >Create Event
                     </a>
                       </li>
                 </ul>
@@ -120,7 +132,27 @@ function MyEvents() {
         </div>
       </div>
     </div>
+
+    <Modal show={showCreateEventModal} onHide={closeCreateEventModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Create Event</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* Add your form or content for creating an event */}
+          <p>Here, you can add the form or content for creating an event.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={closeCreateEventModal}>
+            Close
+          </Button>
+          <Button variant="primary">
+            Save Event
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
+
+
   );
 }
 
