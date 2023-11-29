@@ -33,7 +33,7 @@ function MyEvents() {
                     <FaBookmark className="icon" /> Saved
                   </li>
                   <li className="list-group-item">
-                    <MdAdd className="icon" /> <a href="#" >Create Event
+                    <MdAdd className="icon" /> <a href="#" className= "create-event-link" >Create Event
                     </a>
                       </li>
                 </ul>
