@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FaHeart, FaShare } from 'react-icons/fa';
 import { FaArrowLeft } from 'react-icons/fa';
 
 const EventDetail = () => {
   const { id } = useParams();
+  const eventDetailsRef = useRef();
+
+  useEffect(() => {
+    if (eventDetailsRef.current) {
+      eventDetailsRef.current.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }
+  }, [id]);
 
   const eventDetails = {
     1: {
@@ -104,7 +111,8 @@ const EventDetail = () => {
 
   return (
     <>
-     <div className={`${event.img}`}>
+    <div ref={ eventDetailsRef } />
+    <div className={`${event.img}`}>
     </div>
     <div className="container">
     <div className="row">
