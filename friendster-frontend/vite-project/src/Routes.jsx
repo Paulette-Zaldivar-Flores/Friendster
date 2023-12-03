@@ -5,9 +5,23 @@ import Home from './pages/Home';
 import MyEvents from './pages/MyEvents';
 import EventDetails from './components/EventDetail';
 import Layout from './components/Layout';
+import { useAuth } from "./components/auth/AuthProvider";
 
+
+const PrivateRoute = ({ element: Element, ...rest }) => {
+  const { isAuthenticated } = useAuth();
+  return (
+    <Route
+      {...rest}
+      element={
+        isAuthenticated() ? <Element /> : <Navigate to="/login" replace />
+      }
+    />
+  );
+};
 const Router = createBrowserRouter([
-  { path: '/',
+  {
+    path: "/",
     element: <Layout />,
     children: [
       {
@@ -15,19 +29,19 @@ const Router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: '/home',
+        path: "/home/*",
         element: <Home />,
       },
       {
-        path: 'events/:id',
-        element: <EventDetails />,
+        path: "events/:id",
+        element: <PrivateRoute element={<EventDetails />} />,
       },
       {
-        path: 'MyEvents',
-        element: <MyEvents />,
-      }
-    ]
-  }
+        path: "MyEvents",
+        element: <PrivateRoute element={<MyEvents />} />,
+      },
+    ],
+  },
 ]);
 
 export default Router;
