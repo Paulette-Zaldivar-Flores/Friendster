@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { FaCalendarAlt, FaClock, FaMapMarkerAlt, FaMoneyBill } from 'react-icons/fa';
+import { FaCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
+import { BsPencil } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 
 const CreateEventModal = ({ show, handleClose, addEvent }) => {
@@ -10,8 +11,9 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
     eventDate: '',
     eventTime: '',
     eventLocation: '',
-    eventPrice: '',
+    eventDescription: '',
   });
+
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -19,15 +21,11 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
   };
 
   const handleSave = () => {
-    // Validate your data here before saving
-    // ...
-
-    // Add the new event to the existing events
     addEvent(eventData);
-
-    // Close the modal
     handleClose();
   };
+
+
 
   return (
     <Modal show={show} onHide={handleClose}>
@@ -61,6 +59,7 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
             value={eventData.eventDate}
             onChange={handleInputChange}
           />
+
         </div>
         <div className="mb-3">
           <label htmlFor="eventTime" className="form-label">
@@ -91,13 +90,13 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
         </div>
         <div className="mb-3">
           <label htmlFor="eventDescription" className="form-label">
-            <FaMoneyBill className="me-2" />
+            <BsPencil  className="me-2" />
             Event Description
           </label>
           <input
             type="text"
             className="form-control"
-            id="eventPrice"
+            id="eventDescription"
             placeholder="Enter description"
             value={eventData.eventDescription}
             onChange={handleInputChange}

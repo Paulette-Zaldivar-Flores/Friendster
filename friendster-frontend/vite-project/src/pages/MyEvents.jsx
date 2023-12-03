@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaCalendarAlt, FaFlag, FaBookmark } from 'react-icons/fa';
+import { FaCalendarAlt, FaFlag, FaBookmark, FaClock, FaStickyNote  } from 'react-icons/fa';
 import { MdAdd } from 'react-icons/md';
 import Arctic from '../assets/images/arctic_monkeys.jpg';
 import Modal from '../components/CreateEventModal';
@@ -24,6 +24,18 @@ function MyEvents() {
       ...prevEvents,
       { id: prevEvents.length === 0 ? 1 : prevEvents[prevEvents.length - 1].id + 1, ...newEvent },
     ]);
+  };
+
+  const formatEventDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = new Date(dateString).toLocaleDateString('en-US', options);
+    return formattedDate;
+  };
+
+  const formatEventTime = (timeString) => {
+    const eventTime = new Date(`1970-01-01T${timeString}`);
+    const options = { hour: 'numeric', minute: 'numeric', hour12: true };
+    return eventTime.toLocaleTimeString('en-US', options);
   };
 
   return (
@@ -80,20 +92,29 @@ function MyEvents() {
             </div>
           </div>
           <div className="card-deck">
-              {events.map((event) => (
-                <div className="card shadow-sm mb-3" key={event.id}>
-                  <div className="row g-0">
-                    <div className="col-md-4">
-                      <img src={ Arctic } className="img-fluid rounded-start" alt={event.eventName} />
-                    </div>
-                    <div className="col-md-8">
-                      <div className="card-body">
-                        <h5 className="card-title">{event.eventName}</h5>
-                        <p className="card-text"><span className="event-date">{event.eventDate}</span> <br>{event.eventDescription}</br></p>
-                      </div>
+            {events.map((event) => (
+              <div className="card shadow-sm mb-3" key={event.id}>
+                <div className="row g-0">
+                  <div className="col-md-4">
+                    <img src={Arctic} className="img-fluid rounded-start" alt={event.eventName} />
+                  </div>
+                  <div className="col-md-8">
+                    <div className="card-body">
+                      <h5 className="card-title">{event.eventName}</h5>
+                      <p className="card-text">
+                        <FaCalendarAlt size={20} />{' '}
+                        <span className="event-date">{formatEventDate(event.eventDate)}</span>
+                        <br />
+                        <FaClock size={20} />{' '}
+                        <span className="event-time">{formatEventTime(event.eventTime)}</span>
+                        <br />
+                        <FaStickyNote size={20} />{' '}
+                        {event.eventDescription}
+                      </p>
                     </div>
                   </div>
                 </div>
+              </div>
               ))}
             </div>
           </div>
