@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaCalendarAlt, FaFlag, FaBookmark, FaClock, FaStickyNote  } from 'react-icons/fa';
+import { FaCalendarAlt, FaFlag, FaBookmark, FaClock, FaStickyNote, FaTrash } from 'react-icons/fa';
 import { MdAdd } from 'react-icons/md';
 import Arctic from '../assets/images/arctic_monkeys.jpg';
 import Modal from '../components/CreateEventModal';
@@ -24,6 +24,11 @@ function MyEvents() {
       ...prevEvents,
       { id: prevEvents.length === 0 ? 1 : prevEvents[prevEvents.length - 1].id + 1, ...newEvent },
     ]);
+  };
+
+  const handleDelete = (id) => {
+    const updatedEvents = events.filter((event) => event.id !== id);
+    setEvents(updatedEvents);
   };
 
   const formatEventDate = (dateString) => {
@@ -111,6 +116,11 @@ function MyEvents() {
                         <FaStickyNote size={20} />{' '}
                         {event.eventDescription}
                       </p>
+                      <div className = "button-container">
+                      <button onClick={() => handleDelete(event.id)} className="btn btn-red mr-auto">
+                      <FaTrash size={20} />
+                      </button>
+                    </div>
                     </div>
                   </div>
                 </div>
