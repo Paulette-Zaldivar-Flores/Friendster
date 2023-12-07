@@ -4,6 +4,7 @@ import { MdAdd } from 'react-icons/md';
 import Arctic from '../assets/images/arctic_monkeys.jpg';
 import Modal from '../components/CreateEventModal';
 import User from '../assets/images/user.jpg'
+import { formatEventDate, formatEventTime } from '../utilities/utils';
 
 function MyEvents() {
   const interests = ["Music", "Sports", "Art", "Technology", "Food", "Travel", "Fashion", "Fitness"];
@@ -31,17 +32,6 @@ function MyEvents() {
     setEvents(updatedEvents);
   };
 
-  const formatEventDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = new Date(dateString).toLocaleDateString('en-US', options);
-    return formattedDate;
-  };
-
-  const formatEventTime = (timeString) => {
-    const eventTime = new Date(`1970-01-01T${timeString}`);
-    const options = { hour: 'numeric', minute: 'numeric', hour12: true };
-    return eventTime.toLocaleTimeString('en-US', options);
-  };
 
   return (
     <div className = "MyEvents">
