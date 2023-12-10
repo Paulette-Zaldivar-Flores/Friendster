@@ -9,12 +9,13 @@ import { formatEventDate, formatEventTime } from '../utilities/utils';
 function MyEvents() {
   const interests = ["Music", "Sports", "Art", "Technology", "Food", "Travel", "Fashion", "Fitness"];
   const [showCreateEventModal, setShowCreateEventModal] = useState(false);
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([ ]);
 
   useEffect(() => {
-    const storedEvents = JSON.parse(localStorage.getItem('events')) || [];
-    setEvents(storedEvents);
-  }, []);
+    console.log('Updated Events:', events);
+    localStorage.setItem('events', JSON.stringify(events));
+  }, [events]);
+
 
 
   const openCreateEventModal = () => {
@@ -30,7 +31,10 @@ function MyEvents() {
       ...prevEvents,
       { id: prevEvents.length === 0 ? 1 : prevEvents[prevEvents.length - 1].id + 1, ...newEvent },
     ]);
+
   };
+
+
 
   const handleDelete = (id) => {
     const updatedEvents = events.filter((event) => event.id !== id);
