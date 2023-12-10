@@ -1,6 +1,7 @@
 // AuthProvider.js
 import React, { createContext, useState, useEffect, useContext } from "react";
-import AuthContext from "./AuthContext";
+import { auth } from "../../firebase";
+const AuthContext = createContext();
 
 const useAuth = () => {
   const context = useContext(AuthContext);
