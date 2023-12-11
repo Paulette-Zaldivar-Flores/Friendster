@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
-import { FaCalendarAlt, FaFlag, FaBookmark } from 'react-icons/fa';
+import React, { useState, useEffect  } from 'react';
+import { FaCalendarAlt, FaFlag, FaBookmark, FaClock, FaStickyNote, FaTrash } from 'react-icons/fa';
 import { MdAdd } from 'react-icons/md';
 import Arctic from '../assets/images/arctic_monkeys.jpg';
 import Modal from '../components/CreateEventModal';
 import User from '../assets/images/user.jpg'
+import { formatEventDate, formatEventTime } from '../utilities/utils';
 
 function MyEvents() {
   const interests = ["Music", "Sports", "Art", "Technology", "Food", "Travel", "Fashion", "Fitness"];
   const [showCreateEventModal, setShowCreateEventModal] = useState(false);
+  const [events, setEvents] = useState([ ]);
+
+  useEffect(() => {
+    console.log('Updated Events:', events);
+    localStorage.setItem('events', JSON.stringify(events));
+  }, [events]);
+
+
 
   const openCreateEventModal = () => {
     setShowCreateEventModal(true);
@@ -16,6 +25,27 @@ function MyEvents() {
   const closeCreateEventModal = () => {
     setShowCreateEventModal(false);
   };
+
+  const addEvent = (newEvent) => {
+    setEvents((prevEvents) => [
+      ...prevEvents,
+      { id: prevEvents.length === 0 ? 1 : prevEvents[prevEvents.length - 1].id + 1, ...newEvent },
+    ]);
+
+  };
+
+
+
+  const handleDelete = (id) => {
+    const updatedEvents = events.filter((event) => event.id !== id);
+    setEvents(updatedEvents);
+  };
+
+  useEffect(() => {
+    localStorage.setItem('events', JSON.stringify(events));
+  }, [events]);
+
+
   return (
     <div className = "MyEvents">
     <div className="container-fluid p-3">
@@ -70,68 +100,43 @@ function MyEvents() {
             </div>
           </div>
           <div className="card-deck">
-            <div className="card shadow-sm mb-3">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img src= { Arctic } className="img-fluid rounded-start" alt="Event 1" />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">Arctic Monkeys</h5>
-                    <p className="card-text"><span className = "event-date">Friday December 8, 2023 </span> <br/>Rock out to the indie and alternative tunes of Arctic Monkeys in a high-energy live performance.</p>
+            {events.map((event) => (
+              <div className="card shadow-sm mb-3" key={event.id}>
+                <div className="row g-0">
+                  <div className="col-md-4">
+                    <img src={Arctic} className="img-fluid rounded-start" alt={event.eventName} />
+                  </div>
+                  <div className="col-md-8">
+                    <div className="card-body">
+                      <h5 className="card-title">{event.eventName}</h5>
+                      <p className="card-text">
+                        <FaCalendarAlt size={20} />{' '}
+                        <span className="event-date">{formatEventDate(event.eventDate)}</span>
+                        <br />
+                        <FaClock size={20} />{' '}
+                        <span className="event-time">{formatEventTime(event.eventTime)}</span>
+                        <br />
+                        <FaStickyNote size={20} />{' '}
+                        {event.eventDescription}
+                      </p>
+                      <div className = "button-container">
+                      <button onClick={() => handleDelete(event.id)} className="btn btn-red mr-auto">
+                      <FaTrash size={20} />
+                      </button>
+                    </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="card shadow-sm mb-3">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img src="path/to/event-image2.jpg" className="img-fluid rounded-start" alt="Event 2" />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">Event 2</h5>
-                    <p className="card-text">Description for Event 2.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="card shadow-sm mb-3">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img src="path/to/event-image3.jpg" className="img-fluid rounded-start" alt="Event 3" />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">Event 3</h5>
-                    <p className="card-text">Description for Event 3.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="card shadow-sm mb-3" >
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img src="path/to/event-image4.jpg" className="img-fluid rounded-start" alt="Event 4" />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">Event 4</h5>
-                    <p className="card-text">Description for Event 4.</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <Modal show={showCreateEventModal} handleClose={closeCreateEventModal} />
+      <Modal show={showCreateEventModal} handleClose={closeCreateEventModal} addEvent={addEvent} />
     </div>
   );
 }
+
 
 export default MyEvents;

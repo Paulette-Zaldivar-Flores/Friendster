@@ -35,3 +35,18 @@
     color:rgb(188, 67, 188)
   }
 }
+
+.btn-red{
+  background: linear-gradient(107.2deg, rgb(150, 15, 15) 10.6%, rgb(247, 0, 0) 91.1%);
+  color: #ffffff;
+
+  &:hover{
+    color: #ddd4d4
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
