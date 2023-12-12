@@ -1,7 +1,9 @@
 // AuthProvider.js
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { auth } from "../../firebase";
+
 const AuthContext = createContext();
+
 
 const useAuth = () => {
   const context = useContext(AuthContext);
@@ -22,6 +24,7 @@ const AuthProvider = ({ children }) => {
   const handleSignOut = () => {
     setIsAuthenticated(false);
   };
+
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {

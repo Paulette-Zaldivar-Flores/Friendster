@@ -55,17 +55,18 @@ function Navigation() {
               <Nav.Link href="/MyEvents" className="ms-3">
                 My Events
               </Nav.Link>
+              <div>
               <p className="signedIn">
-                {`Signed In as ${authUser.email} `}
+                {`Hi, ${authUser.email}`}</p>
                 <Button
                   variant="success"
                   className="ms-3"
                   onClick={userSignOut}
                 >
-                  Sign Out
+                  Log Out
                 </Button>
-              </p>
-            
+                </div>
+
             </Nav>
           ) : null}
         </Navbar.Collapse>
