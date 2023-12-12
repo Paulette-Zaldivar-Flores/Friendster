@@ -33,6 +33,12 @@ const Login = () => {
     console.log('Logging in with:', email, password);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === 'Return') {
+      console.log('Enter key pressed!');
+    }
+  };
+
   return (
     <div className="container mt-5 d-flex align-items-center justify-content-center">
       <div className="col-md-6">
@@ -67,6 +73,8 @@ const Login = () => {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                onKeyDown={handleKeyDown}
+                ref={(input) => input && input.focus()}
               />
             </div>
             <button
