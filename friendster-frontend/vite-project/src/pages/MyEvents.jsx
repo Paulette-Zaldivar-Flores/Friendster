@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect, useCallback  } from 'react';
 import { FaCalendarAlt, FaFlag, FaBookmark, FaClock, FaStickyNote, FaTrash } from 'react-icons/fa';
 import { MdAdd } from 'react-icons/md';
 import Arctic from '../assets/images/arctic_monkeys.jpg';
@@ -10,13 +10,6 @@ function MyEvents() {
   const interests = ["Music", "Sports", "Art", "Technology", "Food", "Travel", "Fashion", "Fitness"];
   const [showCreateEventModal, setShowCreateEventModal] = useState(false);
   const [events, setEvents] = useState([ ]);
-
-  useEffect(() => {
-    console.log('Updated Events:', events);
-    localStorage.setItem('events', JSON.stringify(events));
-  }, [events]);
-
-
 
   const openCreateEventModal = () => {
     setShowCreateEventModal(true);
@@ -31,20 +24,16 @@ function MyEvents() {
       ...prevEvents,
       { id: prevEvents.length === 0 ? 1 : prevEvents[prevEvents.length - 1].id + 1, ...newEvent },
     ]);
-
   };
 
-
-
-  const handleDelete = (id) => {
+  const handleDelete = useCallback((id) => {
     const updatedEvents = events.filter((event) => event.id !== id);
     setEvents(updatedEvents);
-  };
+  }, [events]);
 
   useEffect(() => {
     localStorage.setItem('events', JSON.stringify(events));
   }, [events]);
-
 
   return (
     <div className = "MyEvents">
