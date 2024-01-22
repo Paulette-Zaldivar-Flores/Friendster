@@ -14,7 +14,7 @@ const Events = () => {
   ];
 
   return (
-    <div className="d-flex flex-wrap flex-row m-3">
+    <div className="d-flex flex-wrap flex-row m-3" id = "events-section">
       <div className="container align-self-center mb-2">
         <h3>8 Events near you...</h3>
         <div className="row">

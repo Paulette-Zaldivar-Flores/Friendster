@@ -143,7 +143,7 @@ const EventDetail = () => {
           <p>${event.price}</p>
           <button className="btn btn-danger mb-5">Buy Tickets</button>
         </div>
-        <Link className="pale-purple-link" to="/">
+        <Link className="pale-purple-link" to="/Home#events-section">
       <FaArrowLeft /> Back to Events
     </Link>
       </div>
