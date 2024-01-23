@@ -4,10 +4,12 @@ import LoginImage from '../assets/Friendster.png'
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleLogin = (e) => {
     // Add your login logic here
@@ -25,13 +27,13 @@ const Login = () => {
         console.log("ID Token:", idToken);
 
         navigate("/Home");
-        // Further actions after successful sign-in
       })
       .catch((error) => {
-        console.error("Error signing in:", error);
+        console.error('Error signing in:', error);
+        setErrorMessage('Invalid email or password. Please try again.');
       });
-    console.log('Logging in with:', email, password);
   };
+
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' || e.key === 'Return') {
@@ -74,9 +76,14 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={handleKeyDown}
-                ref={(input) => input && input.focus()}
+                // ref={(input) => input && input.focus()}
               />
             </div>
+            {errorMessage && (
+              <div className="alert alert-danger" role="alert">
+                {errorMessage}
+              </div>
+              )}
             <button
               type="button"
               className="btn btn-warning btn-block mb-5"
