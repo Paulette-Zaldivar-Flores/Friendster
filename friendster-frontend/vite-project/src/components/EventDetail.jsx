@@ -1,13 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FaHeart, FaShare, FaCopy } from 'react-icons/fa';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FacebookShareButton, FacebookIcon, LineShareButton, LineIcon } from 'react-share';
+import { usePopper } from 'react-popper';
 
 const EventDetail = () => {
   const { id } = useParams();
   const eventDetailsRef = useRef();
   const url = location.href;
+
+  const [referenceElement, setReferenceElement] = useState(null);
+  const [popperElement, setPopperElement] = useState(null);
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {placement: "bottom-start"});
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     if (eventDetailsRef.current) {
@@ -136,18 +142,28 @@ const EventDetail = () => {
     <button className="btn btn-circle btn-success">
     <FaHeart/>
     </button>
-    <button onClick={() => {navigator.clipboard.writeText(`${url}`); alert("Link copied.")}} className="btn btn-circle btn-primary mx-2">
+    <button ref={setReferenceElement} onClick={() => setShow(!show)} className="btn btn-circle btn-primary mx-2">
       <FaShare />
     </button>
-    <button onClick={() => {navigator.clipboard.writeText(`${url}`); alert("Link copied.")}} className="btn btn-circle btn-secondary mx-1">
-      <FaCopy />
-    </button>
-    <FacebookShareButton hashtag={"#friendster"} url="https://github.com/Paulette-Zaldivar-Flores/Friendster">
-      <FacebookIcon className="mx-1" size={60} round={true} />
-    </FacebookShareButton>
-    <LineShareButton summary={"Check out this awesome event!"} url="https://github.com/Paulette-Zaldivar-Flores/Friendster">
-      <LineIcon className="mx-1" size={60} round={true} />
-    </LineShareButton>
+    {
+        !show ? null : (
+          <div
+          ref={setPopperElement}
+          style={styles.popper}
+          {...attributes.popper}
+          className="card position-absolute flex-row justify-content-center align-center shadow p-2">
+            <button onClick={() => {navigator.clipboard.writeText(`${url}`); alert("Link copied.")}} className="btn btn-circle btn-secondary mx-2">
+              <FaCopy />
+            </button>
+            <FacebookShareButton hashtag={"#friendster"} url="https://github.com/Paulette-Zaldivar-Flores/Friendster">
+              <FacebookIcon className="mx-2" size={60} round={true} />
+            </FacebookShareButton>
+            <LineShareButton summary={"Check out this awesome event!"} url="https://github.com/Paulette-Zaldivar-Flores/Friendster">
+              <LineIcon className="mx-2" size={60} round={true} />
+            </LineShareButton>
+          </div>
+        )
+      }
   </div>
         <div className="ticket-details">
           <h5>Price</h5>
