@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { FaHeart, FaShare } from 'react-icons/fa';
+import { FaHeart, FaShare, FaCopy } from 'react-icons/fa';
 import { FaArrowLeft } from 'react-icons/fa';
+import { FacebookShareButton, FacebookIcon, LineShareButton, LineIcon } from 'react-share';
 
 const EventDetail = () => {
   const { id } = useParams();
   const eventDetailsRef = useRef();
+  const url = location.href;
 
   useEffect(() => {
     if (eventDetailsRef.current) {
@@ -134,9 +136,18 @@ const EventDetail = () => {
     <button className="btn btn-circle btn-success">
     <FaHeart/>
     </button>
-    <button className="btn btn-circle btn-primary mx-2">
+    <button onClick={() => {navigator.clipboard.writeText(`${url}`); alert("Link copied.")}} className="btn btn-circle btn-primary mx-2">
       <FaShare />
     </button>
+    <button onClick={() => {navigator.clipboard.writeText(`${url}`); alert("Link copied.")}} className="btn btn-circle btn-secondary mx-1">
+      <FaCopy />
+    </button>
+    <FacebookShareButton hashtag={"#friendster"} url="https://github.com/Paulette-Zaldivar-Flores/Friendster">
+      <FacebookIcon className="mx-1" size={60} round={true} />
+    </FacebookShareButton>
+    <LineShareButton summary={"Check out this awesome event!"} url="https://github.com/Paulette-Zaldivar-Flores/Friendster">
+      <LineIcon className="mx-1" size={60} round={true} />
+    </LineShareButton>
   </div>
         <div className="ticket-details">
           <h5>Price</h5>
