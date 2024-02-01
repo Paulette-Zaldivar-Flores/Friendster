@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { FaHeart, FaShare, FaCopy } from 'react-icons/fa';
+import { FaHeart, FaShare, FaCopy, FaEnvelope } from 'react-icons/fa';
 import { FaArrowLeft } from 'react-icons/fa';
-import { FacebookShareButton, FacebookIcon, LineShareButton, LineIcon } from 'react-share';
+import { EmailShareButton } from 'react-share';
 import { usePopper } from 'react-popper';
 import { eventDetails } from './EventDetailInfo';
 
@@ -15,6 +15,7 @@ const EventDetail = () => {
   const [popperElement, setPopperElement] = useState(null);
   const { styles, attributes } = usePopper(referenceElement, popperElement, {placement: "bottom-start"});
   const [show, setShow] = useState(false);
+  const [copy, setCopy] = useState("Copy Link");
   const event = eventDetails[id];
 
   useEffect(() => {
@@ -69,15 +70,18 @@ const EventDetail = () => {
           style={styles.popper}
           {...attributes.popper}
           className="card position-absolute flex-row justify-content-center align-center shadow p-2">
-            <button onClick={() => {navigator.clipboard.writeText(`${url}`); alert("Link copied.")}} className="btn btn-circle btn-secondary mx-2">
-              <FaCopy />
-            </button>
-            <FacebookShareButton hashtag={"#friendster"} url="https://github.com/Paulette-Zaldivar-Flores/Friendster">
-              <FacebookIcon className="mx-2" size={60} round={true} />
-            </FacebookShareButton>
-            <LineShareButton summary={"Check out this awesome event!"} url="https://github.com/Paulette-Zaldivar-Flores/Friendster">
-              <LineIcon className="mx-2" size={60} round={true} />
-            </LineShareButton>
+            <div className="text-center">
+              <button onClick={() => {navigator.clipboard.writeText(`${url}`); setCopy("Copied")}} className="btn btn-circle btn-secondary mx-2">
+                <FaCopy className="" />
+              </button>
+              <p className="mb-0">{copy}</p>
+            </div>
+            <div className="text-center">
+              <EmailShareButton subject={"Check out Friendster!"} body={"Sign up on Friendster, the go-to event sharing app!"} url={"https://github.com/Paulette-Zaldivar-Flores/Friendster"}>
+                <FaEnvelope size="60" className="mx-1 fa-envelope"/>
+              </EmailShareButton>
+              <p className="mb-0">Email</p>
+            </div>
           </div>
         )
       }
