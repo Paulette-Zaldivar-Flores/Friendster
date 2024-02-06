@@ -4,6 +4,8 @@
 
 - [Introduction](#introduction)
 - [Features](#features)
+- [Technologies](#technologies)
+- [Frameworks](#frameworks)
 - [Getting Started](#getting-started)
 
 
@@ -46,6 +48,16 @@ Friendster is an event planner app designed to help you effortlessly discover, c
 - View your friends' events and RSVP to them.
 - Coordinate meetups with friends by checking their availability.
 - Send messages and chat with friends within the app.
+
+## Technologies
+- JavaScript
+- Node.js
+- PostgreSQL
+- Prisma
+
+## Frameworks
+- React
+- Vite
 
 ## Getting Started
 
