@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback  } from 'react';
-import { FaCalendarAlt, FaFlag, FaBookmark, FaClock, FaStickyNote, FaTrash } from 'react-icons/fa';
+import { FaCalendarAlt, FaFlag, FaClock, FaStickyNote, FaTrash, FaHeart } from 'react-icons/fa';
 import { MdAdd } from 'react-icons/md';
 import Arctic from '../assets/images/arctic_monkeys.jpg';
 import Modal from '../components/CreateEventModal';
@@ -59,10 +59,10 @@ function MyEvents() {
                     <FaFlag className="icon" /> Hosting
                   </li>
                   <li className="list-group-item">
-                    <FaBookmark className="icon" /> Saved
+                    <FaHeart className="icon" /> Saved
                   </li>
                   <li className="list-group-item">
-                    <MdAdd className="icon" /> <a href="#" className= "create-event-link" onClick={ openCreateEventModal } >Create Event
+                    <MdAdd className="icon" /> <a href="#" className= "create-event-link" onClick={ openCreateEventModal } >Add Event
                     </a>
                       </li>
                 </ul>
