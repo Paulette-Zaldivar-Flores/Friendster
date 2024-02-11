@@ -6,7 +6,7 @@
 - [Features](#features)
 - [Technologies](#technologies)
 - [Frameworks](#frameworks)
-- [Getting Started](#getting-started)
+
 
 
 
@@ -37,13 +37,19 @@ Friendster is an event planner app designed to help you effortlessly discover, c
 - Receive RSVPs and track attendance for your events.
 - Keep everyone updated with event notifications.
 
-### 4. Calendar Integration
+### 4. Save Events
+- Easily save and organize your upcoming events within the app.
+- Receive and manage RSVPs to keep track of attendees.
+- Stay informed with timely event notifications, ensuring you never miss a moment.
+
+
+### 5. Calendar Integration
 
 - Sync your events with your device's calendar for seamless coordination.
 - Avoid scheduling conflicts by seeing all your events in one place.
 - Set reminders for upcoming events and get notifications.
 
-### 5. Friend Coordination
+### 6. Friend Coordination
 
 - View your friends' events and RSVP to them.
 - Coordinate meetups with friends by checking their availability.
@@ -59,15 +65,6 @@ Friendster is an event planner app designed to help you effortlessly discover, c
 - React
 - Vite
 
-## Getting Started
-
-To get started with Friendster, follow these steps:
-
-1. Download and install the Friendster app from your device's app store.
-2. Sign up for an account or log in if you already have one.
-3. Explore events, create your own, and start inviting friends.
-4. Sync the app with your calendar for easy event coordination.
-5. Stay connected with friends and enjoy unforgettable moments!
 
 ## Developers
 
