@@ -50,21 +50,21 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           {authUser ? (
             <Nav className="ms-auto d-flex center-links">
-              <p className="signedIn softwhite-bg mb-0">
-              {`Hi, ${authUser.email}`}</p>
               <Nav.Link href="/Home" className="ms-3">
                 Home
               </Nav.Link>
               <Nav.Link href="/MyEvents" className="ms-3">
                 My Events
               </Nav.Link>
-                <Button
-                  variant="text"
-                  className="ms-3 purple-grad-btn"
-                  onClick={userSignOut}
-                >
-                  Logout
-                </Button>
+              <Button
+                variant="text"
+                className="ms-3 purple-grad-btn"
+                onClick={userSignOut}
+              >
+                Logout
+              </Button>
+              <p className="signedIn softwhite-bg mb-0">
+              {`Hi, ${authUser.email}`}</p>
 
             </Nav>
           ) :
