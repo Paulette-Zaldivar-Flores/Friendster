@@ -27,13 +27,8 @@ const Banner = () => {
   };
 
   return (
-    <div className="banner">
-      <div className="banner-content1">
-        <div className="icons1"></div>
-        <div className="icons2"></div>
-        <div className="icons3"></div>
-      </div>
-      <div className="banner-content2">
+    <div className="banner p-1">
+      <div className="banner-content">
         <h1>
           Plan With Your <span className="gradient-text">Friends</span>
         </h1>
@@ -52,11 +47,6 @@ const Banner = () => {
             Search
           </button>
         </div>
-      </div>
-      <div className="banner-content3">
-        <div className="icons1"></div>
-        <div className="icons2"></div>
-        <div className="icons3"></div>
       </div>
     </div>
   );
