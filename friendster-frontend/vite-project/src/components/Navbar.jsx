@@ -7,6 +7,7 @@ import Logo from "../assets/Friendster.png";
 
 import { auth } from "../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+
 function Navigation() {
   const [authUser, setAuthUser] = useState(null);
 
@@ -36,7 +37,7 @@ function Navigation() {
   return (
     <Navbar expand="lg" className="navbar">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/home">
           <img
             src={Logo}
             width="60"
@@ -55,20 +56,27 @@ function Navigation() {
               <Nav.Link href="/MyEvents" className="ms-3">
                 My Events
               </Nav.Link>
-              <div>
-              <p className="signedIn">
-                {`Hi, ${authUser.email}`}</p>
-                <Button
-                  variant="success"
-                  className="ms-3"
-                  onClick={userSignOut}
-                >
-                  Log Out
-                </Button>
-                </div>
+              <Button
+                variant="text"
+                className="ms-3 purple-grad-btn"
+                onClick={userSignOut}
+              >
+                Logout
+              </Button>
+              <p className="signedIn softwhite-bg mb-0">
+              {`Hi, ${authUser.email}`}</p>
 
             </Nav>
-          ) : null}
+          ) :
+          <Nav className="ms-auto d-flex center-links">
+          <Nav.Link href="/Home" className="ms-3">
+            Home
+          </Nav.Link>
+          <Nav.Link href="/" className="ms-3 purple-grad-btn">
+            Login
+          </Nav.Link>
+
+        </Nav>}
         </Navbar.Collapse>
       </Container>
     </Navbar>
