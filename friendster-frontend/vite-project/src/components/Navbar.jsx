@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Logo from "../assets/Friendster.png";
+import Logo from "../assets/images/Friendster.png";
 
 import { auth } from "../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";

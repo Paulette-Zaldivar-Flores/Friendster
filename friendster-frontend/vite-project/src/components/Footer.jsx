@@ -1,5 +1,5 @@
 import React from 'react';
-import Event from './../assets/event-image.jpg'
+import Event from './../assets/images/event-image.jpg'
 
 function Footer() {
   const today = new Date().toLocaleDateString('en-US', {
@@ -57,7 +57,7 @@ function Footer() {
                     <a href="#">
                       <img
                       className="media-object"
-                      src={ Event}
+                      src={Event}
                       width="60"
                       height="60"
                       alt="Event 1" /></a>
@@ -73,7 +73,7 @@ function Footer() {
                     <a href="#.">
                       <img
                       className="media-object"
-                      src={ Event}
+                      src={Event}
                       width="60"
                       height="60"
                       alt="Event 2" />

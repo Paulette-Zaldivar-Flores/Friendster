@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import LoginImage from '../assets/Friendster.png'
+import LoginImage from '../assets/images/Friendster.png'
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
