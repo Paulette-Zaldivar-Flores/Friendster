@@ -56,8 +56,8 @@
 
 .btn-circle {
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
 }
 
 .pale-purple-link {
@@ -75,6 +75,30 @@
 
 .pale-purple-link svg {
   margin-right: 5px;
+}
+
+.share-btn{
+  color: #ffffff;
+  background: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+  border-color: #30435266;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+	      -6px -6px 10px -1px rgba(255,255,255,0.7);
+
+  &:hover{
+    color: #ffffff;
+  }
+}
+
+.love-btn{
+  color:#ffffff;
+  background: linear-gradient(89deg, rgb(21, 74, 189) 0.1%, rgb(26, 138, 211) 51.5%, rgb(72, 177, 234) 100.2%);
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+	      -6px -6px 10px -1px rgba(255,255,255,0.7);
+        border-color: #30435265;
+
+        &:hover{
+          color: #ffffff;
+        }
 }
 
 

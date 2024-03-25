@@ -57,10 +57,10 @@ const EventDetail = () => {
       </div>
       <div className="col-md-4">
       <div className="button-group mt-3 mb-3">
-    <button className="btn btn-circle btn-success">
+    <button className="btn btn-circle love-btn">
     <FaHeart/>
     </button>
-    <button ref={setReferenceElement} onClick={() => setShow(!show)} className="btn btn-circle btn-primary mx-2">
+    <button ref={setReferenceElement} onClick={() => setShow(!show)} className="btn btn-circle share-btn mx-2">
       <FaShare />
     </button>
     {
