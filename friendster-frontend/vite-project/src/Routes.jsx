@@ -29,7 +29,6 @@ const Router = createBrowserRouter([
       },
       {
         path: "MyEvents",
-
         element: <AuthenticatedRoute elementName={MyEvents} />,
       },
     ],
