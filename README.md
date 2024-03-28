@@ -35,7 +35,6 @@ Friendster is an event planner app designed to help you effortlessly discover, c
 
 - Share event details with friends through the app.
 - Receive RSVPs and track attendance for your events.
-- Keep everyone updated with event notifications.
 
 ### 4. Save Events
 - Easily save and organize your upcoming events within the app.
@@ -68,6 +67,6 @@ Friendster is an event planner app designed to help you effortlessly discover, c
 
 ## Developers
 
-Tamana Rahman, <a href="https://paulettethedev.com/" target="blank" rel="About-Me"> Paulette Zaldivar Flores</a> and Sarah Rollins
+Tamana Rahmanin, <a href="https://paulettethedev.com/" target="blank" rel="About-Me"> Paulette Zaldivar Flores</a> and Sarah Rollins
 
 
