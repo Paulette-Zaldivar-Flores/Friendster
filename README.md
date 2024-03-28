@@ -67,6 +67,6 @@ Friendster is an event planner app designed to help you effortlessly discover, c
 
 ## Developers
 
-Tamana Rahmanin, <a href="https://paulettethedev.com/" target="blank" rel="About-Me"> Paulette Zaldivar Flores</a> and Sarah Rollins
+Tamana Rahman, <a href="https://paulettethedev.com/" target="blank" rel="About-Me"> Paulette Zaldivar Flores</a> and Sarah Rollins
 
 
