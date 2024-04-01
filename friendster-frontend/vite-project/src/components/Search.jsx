@@ -41,7 +41,7 @@ const Search = () => {
     <div className="m-2">
       <h1 className="gradient-text text-center p-2">Event Matches</h1>
 
-      <Form className="search-bar p-1">
+      <Form className="search-bar pb-4">
           <input
             type="text"
             name="title"
@@ -57,7 +57,7 @@ const Search = () => {
           </button>
       </Form>
 
-      <div className="m-4 container align-self-center">
+      <div className="container align-self-center">
         <div className="row">
           {matchesCheck}
         </div>
