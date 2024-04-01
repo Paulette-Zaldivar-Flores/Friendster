@@ -35,7 +35,7 @@ const Search = () => {
     </div>
   ));
 
-  const matchesCheck = filterOut.length > 0 ? filterOut : "No Matches";
+  const matchesCheck = filterOut.length > 0 ? filterOut : <h4 className="text-center text-muted p-4">No Matches</h4>;
 
   return (
     <div className="m-2">
