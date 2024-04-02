@@ -25,7 +25,9 @@ const AuthProvider = ({ children }) => {
     setIsAuthenticated(false);
   }, []);
 
-
+  const handleSignUp = useCallback(() => {
+    setIsAuthenticated(true);
+  }, []);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -51,6 +53,7 @@ const AuthProvider = ({ children }) => {
     isLoading,
     signIn: handleSignIn,
     signOut: handleSignOut,
+    signUp: handleSignUp,
   };
 
   return (
