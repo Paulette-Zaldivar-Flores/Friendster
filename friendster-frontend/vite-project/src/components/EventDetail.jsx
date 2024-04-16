@@ -60,6 +60,9 @@ const EventDetail = () => {
     <button className="btn btn-circle love-btn">
     <FaHeart/>
     </button>
+    <button className="btn btn-circle love-btn mx-2">
+    <FaHeart/>
+    </button>
     <button ref={setReferenceElement} onClick={() => setShow(!show)} className="btn btn-circle share-btn mx-2">
       <FaShare />
     </button>
