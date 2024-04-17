@@ -1,28 +1,53 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useNavigate, Link } from "react-router-dom";
 import SignupImage from '../assets/images/Friendster.png'
 import { auth } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
 
+  const user = {
+    name: name,
+    email: email,
+    password: password
+  };
+
   const handleSignUp = (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed up
-        const user = userCredential.user;
-        console.log(user);
-        // ...
-        navigate("/Home");
+
+    axios.post("http://localhost:3000/api/user/create", user)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
       })
       .catch((error) => {
         console.error('Error signing up:', error);
         setErrorMessage('Issue signing up. Please try again.');
+      });
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Access the user and the ID token
+        const user = userCredential.user;
+        return user.getIdToken();
+      })
+      .then((idToken) => {
+        // Set the ID token to local storage
+        localStorage.setItem("userToken", idToken);
+
+        console.log("ID Token:", idToken);
+
+        navigate("/Home");
+      })
+      .catch((error) => {
+        console.error('Error signing in:', error);
+        setErrorMessage('Invalid email or password. Please try again.');
       });
   };
 
@@ -39,6 +64,18 @@ const Signup = () => {
         <div>
           <form>
             <h2 className="gradient-text text-center">Join the community!</h2>
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">
+                Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
                 Email
