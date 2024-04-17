@@ -26,7 +26,7 @@ const Login = () => {
 
         console.log("ID Token:", idToken);
 
-        navigate("/Home");
+        navigate("/");
       })
       .catch((error) => {
         console.error('Error signing in:', error);

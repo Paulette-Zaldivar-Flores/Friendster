@@ -1,6 +1,5 @@
 import React from 'react';
 import { createBrowserRouter } from "react-router-dom";
-import Login from './components/Login'
 import Home from './pages/Home';
 import MyEvents from './pages/MyEvents';
 import EventDetails from './components/EventDetail';
@@ -12,24 +11,20 @@ import AuthenticatedRoute from "./components/auth/AuthenticatedComponent";
 
 const Router = createBrowserRouter([
   {
-    path: "/",
+    path: "/*",
     element: <Layout />,
     children: [
       {
-        index: true,
-        element: <Login />,
-      },
-      {
-        path: "/home/*",
-        element: <Home />,
+        path: "/*",
+        element: <AuthenticatedRoute elementName={Home} />
       },
       {
         path: "events/:id",
-        element: <AuthenticatedRoute elementName={EventDetails} />,
+        element: <AuthenticatedRoute elementName={EventDetails} />
       },
       {
         path: "MyEvents",
-        element: <AuthenticatedRoute elementName={MyEvents} />,
+        element: <AuthenticatedRoute elementName={MyEvents} />
       },
     ],
   },
