@@ -37,7 +37,7 @@ function Navigation() {
   return (
     <Navbar expand="lg" className="navbar">
       <Container>
-        <Navbar.Brand href="/home">
+        <Navbar.Brand href="/">
           <img
             src={Logo}
             width="60"
@@ -50,7 +50,7 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           {authUser ? (
             <Nav className="ms-auto d-flex center-links">
-              <Nav.Link href="/Home" className="ms-3">
+              <Nav.Link href="/" className="ms-3">
                 Home
               </Nav.Link>
               <Nav.Link href="/MyEvents" className="ms-3">
@@ -69,7 +69,7 @@ function Navigation() {
             </Nav>
           ) :
           <Nav className="ms-auto d-flex center-links">
-          <Nav.Link href="/Home" className="ms-3">
+          <Nav.Link href="/" className="ms-3">
             Home
           </Nav.Link>
           <Nav.Link href="/" className="ms-3 purple-grad-btn">
