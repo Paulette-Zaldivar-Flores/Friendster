@@ -22,6 +22,7 @@ const AuthProvider = ({ children }) => {
   }, []); // Empty dependency array means this function will only be created once.
 
   const handleSignOut = useCallback(() => {
+   
     setIsAuthenticated(false);
   }, []);
 

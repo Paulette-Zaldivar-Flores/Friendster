@@ -23,6 +23,11 @@ const Login = () => {
       .then((idToken) => {
         // Set the ID token to local storage
         localStorage.setItem("userToken", idToken);
+        // Set expiration time (e.g., 1 hour from now)
+        const expirationTime = new Date().getTime() + 30*10 * 1000;//
+
+        // Store expiration time in localStorage
+        localStorage.setItem("tokenExpiration", expirationTime);
 
         console.log("ID Token:", idToken);
 

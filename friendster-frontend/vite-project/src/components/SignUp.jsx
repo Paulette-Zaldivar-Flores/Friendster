@@ -25,36 +25,41 @@ const Signup = () => {
       .then(res => {
         console.log(res);
         console.log(res.data);
+
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Access the user and the ID token
+            const user = userCredential.user;
+            return user.getIdToken();
+          })
+          .then((idToken) => {
+            // Set the ID token to local storage
+            localStorage.setItem("userToken", idToken);
+            const expirationTime = new Date().getTime() + 30 * 10 * 1000; //
+
+            // Store expiration time in localStorage
+            localStorage.setItem("tokenExpiration", expirationTime);
+
+            console.log("ID Token:", idToken);
+
+            navigate("/Home");
+          })
+          .catch((error) => {
+            console.error("Error signing in:", error);
+            setErrorMessage("Invalid email or password. Please try again.");
+          });
       })
       .catch((error) => {
         console.error('Error signing up:', error);
         setErrorMessage('Issue signing up. Please try again.');
       });
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Access the user and the ID token
-        const user = userCredential.user;
-        return user.getIdToken();
-      })
-      .then((idToken) => {
-        // Set the ID token to local storage
-        localStorage.setItem("userToken", idToken);
-
-        console.log("ID Token:", idToken);
-
-        navigate("/Home");
-      })
-      .catch((error) => {
-        console.error('Error signing in:', error);
-        setErrorMessage('Invalid email or password. Please try again.');
-      });
   };
 
   return (
     <div className="container mt-5 d-flex align-items-center justify-content-center">
       <div className="col-md-6">
-        <div className = "text-center">
+        <div className="text-center">
           <img src={SignupImage}
             alt="SignupImg"
             className="img-fluid mb-4"
@@ -101,10 +106,10 @@ const Signup = () => {
               />
             </div>
             {errorMessage && (
-                <div className="alert alert-danger py-2" role="alert">
-                  {errorMessage}
-                </div>
-              )}
+              <div className="alert alert-danger py-2" role="alert">
+                {errorMessage}
+              </div>
+            )}
             <div className="mb-5">
               <button
                 type="button"
