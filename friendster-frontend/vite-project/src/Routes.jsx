@@ -13,11 +13,11 @@ import AuthenticatedRoute from "./components/auth/AuthenticatedComponent";
 
 const Router = createBrowserRouter([
   {
-    path: "/*",
+    path: "/",
     element: <Layout />,
     children: [
       {
-        path: "/*",
+        index: true,
         element: <AuthenticatedRoute elementName={Home} />
       },
       {
