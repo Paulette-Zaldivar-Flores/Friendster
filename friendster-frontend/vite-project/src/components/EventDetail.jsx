@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { FaHeart, FaShare, FaCopy, FaEnvelope } from 'react-icons/fa';
+import { FaHeart, FaShare, FaCopy, FaEnvelope, FaCalendarCheck} from 'react-icons/fa';
 import { FaArrowLeft } from 'react-icons/fa';
 import { EmailShareButton } from 'react-share';
 import { usePopper } from 'react-popper';
@@ -57,13 +57,13 @@ const EventDetail = () => {
       </div>
       <div className="col-md-4">
       <div className="button-group mt-3 mb-3">
-    <button className="btn btn-circle love-btn">
+    <button className="btn btn-circle love-btn mx-1">
     <FaHeart/>
     </button>
-    <button className="btn btn-circle love-btn mx-2">
-    <FaHeart/>
+    <button className="btn btn-circle calendar-btn mx-1">
+    <FaCalendarCheck />
     </button>
-    <button ref={setReferenceElement} onClick={() => setShow(!show)} className="btn btn-circle share-btn mx-2">
+    <button ref={setReferenceElement} onClick={() => setShow(!show)} className="btn btn-circle share-btn mx-1">
       <FaShare />
     </button>
     {
