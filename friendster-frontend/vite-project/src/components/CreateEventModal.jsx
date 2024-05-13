@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import { FaCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 import { BsPencil } from 'react-icons/bs';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const CreateEventModal = ({ show, handleClose, addEvent }) => {
   const [eventData, setEventData] = useState({
@@ -14,6 +15,8 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
     eventDescription: '',
   });
 
+  const [errorMessage, setErrorMessage] = useState(null);
+
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -21,8 +24,17 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
   };
 
   const handleSave = () => {
-    addEvent(eventData);
-    handleClose();
+    axios.post("http://localhost:3000/api/event/create", eventData)
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+      addEvent(eventData);
+      handleClose();
+    })
+    .catch((error) => {
+      console.error('Error creating event', error);
+      setErrorMessage('Issue creating event. Please try again.');
+    });
   };
 
 
@@ -102,6 +114,11 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
             onChange={handleInputChange}
           />
         </div>
+        {errorMessage && (
+          <div className="alert alert-danger py-2" role="alert">
+            {errorMessage}
+          </div>
+        )}
       </form>
     </Modal.Body>
     <Modal.Footer>
