@@ -8,11 +8,11 @@ import axios from 'axios';
 
 const CreateEventModal = ({ show, handleClose, addEvent }) => {
   const [eventData, setEventData] = useState({
-    eventName: '',
-    eventDate: '',
-    eventTime: '',
-    eventLocation: '',
-    eventDescription: '',
+    name: '',
+    // date: '',
+    // time: '',
+    // location: '',
+    summary: '',
   });
 
   const [errorMessage, setErrorMessage] = useState(null);
@@ -24,7 +24,11 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
   };
 
   const handleSave = () => {
-    axios.post("http://localhost:3000/api/event/create", eventData)
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem('userToken')}` }
+    };
+
+    axios.post("http://localhost:3000/api/event/create", eventData, config)
     .then(res => {
       console.log(res);
       console.log(res.data);
@@ -47,70 +51,70 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
     <Modal.Body>
       <form>
         <div className="mb-3">
-          <label htmlFor="eventName" className="form-label">
+          <label htmlFor="name" className="form-label">
             Event Name
           </label>
           <input
             type="text"
             className="form-control"
-            id="eventName"
+            id="name"
             placeholder="Enter event name"
-            value={eventData.eventName}
+            value={eventData.name}
             onChange={handleInputChange}
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="eventDate" className="form-label">
+          <label htmlFor="date" className="form-label">
             <FaCalendarAlt className="me-2" />
             Event Date
           </label>
           <input
             type="date"
             className="form-control"
-            id="eventDate"
-            value={eventData.eventDate}
-            onChange={handleInputChange}
+            id="date"
+            // value={eventData.date}
+            // onChange={handleInputChange}
           />
 
         </div>
         <div className="mb-3">
-          <label htmlFor="eventTime" className="form-label">
+          <label htmlFor="time" className="form-label">
             <FaClock className="me-2" />
             Event Time
           </label>
           <input
             type="time"
             className="form-control"
-            id="eventTime"
-            value={eventData.eventTime}
-            onChange={handleInputChange}
+            id="time"
+            // value={eventData.time}
+            // onChange={handleInputChange}
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="eventLocation" className="form-label">
+          <label htmlFor="location" className="form-label">
             <FaMapMarkerAlt className="me-2" />
             Event Location
           </label>
           <input
             type="text"
             className="form-control"
-            id="eventLocation"
+            id="location"
             placeholder="Enter event location"
-            value={eventData.eventLocation}
-            onChange={handleInputChange}
+            // value={eventData.location}
+            // onChange={handleInputChange}
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="eventDescription" className="form-label">
+          <label htmlFor="summary" className="form-label">
             <BsPencil  className="me-2" />
             Event Description
           </label>
           <input
             type="text"
             className="form-control"
-            id="eventDescription"
+            id="summary"
             placeholder="Enter description"
-            value={eventData.eventDescription}
+            value={eventData.summary}
             onChange={handleInputChange}
           />
         </div>
