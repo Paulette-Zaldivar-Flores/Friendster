@@ -56,6 +56,39 @@ async function seedDatabase() {
     events: createdEvents,
   });
 }
+const createLocationSeedData = async (count) => {
+  const locations = [];
+  for (let i = 0; i < count; i++) {
+    const location = {
+      name: faker.company.companyName(),
+      address: faker.address.streetAddress(),
+      age_restriction: faker.random.arrayElement(["None", "18+", "21+"]),
+      capacity: faker.random.number({ min: 50, max: 500 }),
+      latitude: faker.address.latitude(),
+      longitude: faker.address.longitude(),
+    };
+    locations.push(location);
+  }
+  return locations;
+};
+
+const seedLocations = async () => {
+  try {
+    // Generate seed data for 10 locations
+    const locationsToSeed = await createLocationSeedData(10);
+    // Insert seed data into the database using Prisma
+    await prisma.venue.createMany({
+      data: locationsToSeed,
+    });
+    console.log("Seed data inserted successfully.");
+  } catch (error) {
+    console.error("Error seeding data:", error);
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
+seedLocations();
 
 seedDatabase()
   .catch((e) => {

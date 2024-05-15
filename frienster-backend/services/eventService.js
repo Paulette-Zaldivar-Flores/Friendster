@@ -3,9 +3,29 @@ const prisma = new PrismaClient();
 
 // Create a new event
 async function createEvent(eventData) {
+ 
   try {
+    const { name, date, starttime, endtime, summary, location } = eventData;
+    const venue = await prisma.venue.findFirst({
+      where: {
+        name: location,
+      },
+    });
+
+    if (!venue) {
+      throw new Error(`Venue with name ${location} not found.`);
+    }
+    const formattedDate = new Date(date).toISOString();
     const newEvent = await prisma.event.create({
-      data: eventData,
+      data: {
+        name,
+        eventDate: formattedDate,
+        created: new Date(),
+        starttime,
+        endtime,
+        summary,
+        venue_id: venue.id, // Assign the venue_id
+      },
     });
     return newEvent;
   } catch (error) {

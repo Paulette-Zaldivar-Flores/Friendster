@@ -37,8 +37,9 @@ model event {
   summary         String?
   description     String?
   url             String?       @db.VarChar(255)
-  starttime       DateTime?     @db.Timestamptz(6)
-  endtime         DateTime?     @db.Timestamptz(6)
+  eventDate       DateTime?     @db.Timestamp(6)
+  starttime       String?       @db.VarChar(255)
+  endtime         String?       @db.VarChar(255)
   created         DateTime?     @db.Timestamp(6)
   changed         DateTime?     @db.Timestamp(6)
   published       DateTime?     @db.Timestamp(6)

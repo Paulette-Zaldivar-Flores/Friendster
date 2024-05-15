@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FaCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
@@ -8,131 +8,169 @@ import axios from 'axios';
 
 const CreateEventModal = ({ show, handleClose, addEvent }) => {
   const [eventData, setEventData] = useState({
-    name: '',
-    // date: '',
-    // time: '',
-    // location: '',
-    summary: '',
+    name: "",
+    date: '',
+    starttime: "",
+    endtime: "",
+    location: '',
+    summary: "",
   });
-
+  const [locations, setLocations] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
-
+  useEffect(() => {
+    // Fetch locations from the database endpoint
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` },
+    };
+    axios
+      .get("http://localhost:5000/api/location/all", config)
+      .then((res) => {
+        // Update the locations state with fetched data
+        console.log(res.data);
+        setLocations(res.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching locations:", error);
+      });
+  }, []); 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setEventData((prevData) => ({ ...prevData, [id]: value }));
   };
 
   const handleSave = () => {
+    console.log(eventData);
+    console.log(localStorage.getItem("userToken"));
     const config = {
-      headers: { Authorization: `Bearer ${localStorage.getItem('userToken')}` }
+      headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` },
     };
-
-    axios.post("http://localhost:3000/api/event/create", eventData, config)
-    .then(res => {
-      console.log(res);
-      console.log(res.data);
-      addEvent(eventData);
-      handleClose();
-    })
-    .catch((error) => {
-      console.error('Error creating event', error);
-      setErrorMessage('Issue creating event. Please try again.');
-    });
+    console.log(JSON.stringify(eventData));
+    axios
+      .post("http://localhost:5000/api/event/create", eventData, config)
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+        addEvent(eventData);
+        handleClose();
+      })
+      .catch((error) => {
+        console.log(eventData);
+        console.error("Error creating event", error);
+        setErrorMessage('Issue creating event. Please try again.');
+      });
   };
-
-
 
   return (
     <Modal show={show} onHide={handleClose}>
-    <Modal.Header closeButton>
-      <Modal.Title>Create Event</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>
-      <form>
-        <div className="mb-3">
-          <label htmlFor="name" className="form-label">
-            Event Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            placeholder="Enter event name"
-            value={eventData.name}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="date" className="form-label">
-            <FaCalendarAlt className="me-2" />
-            Event Date
-          </label>
-          <input
-            type="date"
-            className="form-control"
-            id="date"
-            // value={eventData.date}
-            // onChange={handleInputChange}
-          />
-
-        </div>
-        <div className="mb-3">
-          <label htmlFor="time" className="form-label">
-            <FaClock className="me-2" />
-            Event Time
-          </label>
-          <input
-            type="time"
-            className="form-control"
-            id="time"
-            // value={eventData.time}
-            // onChange={handleInputChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="location" className="form-label">
-            <FaMapMarkerAlt className="me-2" />
-            Event Location
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="location"
-            placeholder="Enter event location"
-            // value={eventData.location}
-            // onChange={handleInputChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="summary" className="form-label">
-            <BsPencil  className="me-2" />
-            Event Description
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="summary"
-            placeholder="Enter description"
-            value={eventData.summary}
-            onChange={handleInputChange}
-          />
-        </div>
-        {errorMessage && (
-          <div className="alert alert-danger py-2" role="alert">
-            {errorMessage}
+      <Modal.Header closeButton>
+        <Modal.Title>Create Event</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <form>
+          <div className="mb-3">
+            <label htmlFor="name" className="form-label">
+              Event Name
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              placeholder="Enter event name"
+              value={eventData.name}
+              onChange={handleInputChange}
+            />
           </div>
-        )}
-      </form>
-    </Modal.Body>
-    <Modal.Footer>
-      <Button variant="secondary" onClick={ handleClose }>
-        Close
-      </Button>
-      <Button variant="info"  onClick={handleSave}>
-        Save Event
-      </Button>
-    </Modal.Footer>
+          <div className="mb-3">
+            <label htmlFor="date" className="form-label">
+              <FaCalendarAlt className="me-2" />
+              Event Date
+            </label>
+            <input
+              type="date"
+              className="form-control"
+              id="date"
+                  value={eventData.date}
+                 onChange={handleInputChange}
+            />
+          </div>
+         
+          <div className="mb-3">
+            <label htmlFor="starttime" className="form-label">
+              <FaClock className="me-2" />
+              Start Time
+            </label>
+            <input
+              type="time"
+              className="form-control"
+              id="starttime"
+              value={eventData.starttime} // Update the value attribute
+              onChange={handleInputChange} // Update the onChange event handler
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="endtime" className="form-label">
+              <FaClock className="me-2" />
+              End Time
+            </label>
+            <input
+              type="time"
+              className="form-control"
+              id="endtime"
+              value={eventData.endtime} // Update the value attribute
+              onChange={handleInputChange} // Update the onChange event handler
+            />
+          </div>
+
+          
+          <div className="mb-3">
+            <label htmlFor="location" className="form-label">
+              <FaMapMarkerAlt className="me-2" />
+              Event Location
+            </label>
+            <select
+              className="form-select"
+              id="location"
+              value={eventData.location}
+              onChange={handleInputChange}
+            >
+              <option value="">Select location</option>
+              {locations.map((location) => (
+                <option key={location.id} value={location.name}>
+                  {location.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="summary" className="form-label">
+              <BsPencil className="me-2" />
+              Event Description
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="summary"
+              placeholder="Enter description"
+              value={eventData.summary}
+              onChange={handleInputChange}
+            />
+          </div>
+          {errorMessage && (
+            <div className="alert alert-danger py-2" role="alert">
+              {errorMessage}
+            </div>
+          )}
+        </form>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+        <Button variant="info" onClick={handleSave}>
+          Save Event
+        </Button>
+      </Modal.Footer>
     </Modal>
   );
 };
