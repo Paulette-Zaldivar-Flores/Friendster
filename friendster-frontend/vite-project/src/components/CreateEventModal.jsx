@@ -9,7 +9,7 @@ import axios from 'axios';
 const CreateEventModal = ({ show, handleClose, addEvent }) => {
   const [eventData, setEventData] = useState({
     name: "",
-    date: '',
+    eventDate: '',
     starttime: "",
     endtime: "",
     location: '',
@@ -82,15 +82,15 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="date" className="form-label">
+            <label htmlFor="eventDate" className="form-label">
               <FaCalendarAlt className="me-2" />
               Event Date
             </label>
             <input
               type="date"
               className="form-control"
-              id="date"
-                  value={eventData.date}
+              id="eventDate"
+                  value={eventData.eventDate}
                  onChange={handleInputChange}
             />
           </div>
