@@ -24,7 +24,7 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
       headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` },
     };
     axios
-      .get("http://localhost:5000/api/location/all", config)
+      .get("http://localhost:3000/api/location/all", config)
       .then((res) => {
         // Update the locations state with fetched data
         console.log(res.data);
@@ -33,7 +33,7 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
       .catch((error) => {
         console.error("Error fetching locations:", error);
       });
-  }, []); 
+  }, []);
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setEventData((prevData) => ({ ...prevData, [id]: value }));
@@ -47,7 +47,7 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
     };
     console.log(JSON.stringify(eventData));
     axios
-      .post("http://localhost:5000/api/event/create", eventData, config)
+      .post("http://localhost:3000/api/event/create", eventData, config)
       .then((res) => {
         console.log(res);
         console.log(res.data);
@@ -94,7 +94,7 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
                  onChange={handleInputChange}
             />
           </div>
-         
+
           <div className="mb-3">
             <label htmlFor="starttime" className="form-label">
               <FaClock className="me-2" />
@@ -122,7 +122,7 @@ const CreateEventModal = ({ show, handleClose, addEvent }) => {
             />
           </div>
 
-          
+
           <div className="mb-3">
             <label htmlFor="location" className="form-label">
               <FaMapMarkerAlt className="me-2" />

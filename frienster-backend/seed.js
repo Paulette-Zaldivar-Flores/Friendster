@@ -63,7 +63,7 @@ const createLocationSeedData = async (count) => {
       name: faker.company.companyName(),
       address: faker.address.streetAddress(),
       age_restriction: faker.random.arrayElement(["None", "18+", "21+"]),
-      capacity: faker.random.number({ min: 50, max: 500 }),
+      capacity: faker.datatype.number({ min: 50, max: 500 }),
       latitude: faker.address.latitude(),
       longitude: faker.address.longitude(),
     };
