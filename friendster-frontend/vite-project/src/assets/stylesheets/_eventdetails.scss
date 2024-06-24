@@ -81,10 +81,10 @@
   color: #ffffff;
   border-color: #30435266;
   box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15);
-  background: #2f2fd7;
+  background: #5D2FD7;
   &:hover{
     color: #ffffff;
-    background:  #4848eb;;
+    background:  #402196;
     border-color: #30435266;
   }
 }
@@ -98,21 +98,21 @@
 
         &:hover{
           color: #ffffff;
-          background:  #ef1fe8ca;
+          background:  #c5007d;
           border-color: #30435265;
         }
 }
 
 .calendar-btn{
   color:#ffffff;
-  background: #008000;
+  background: #FF5733;
   box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
 	      -6px -6px 10px -1px rgba(255,255,255,0.7);
         border-color: #30435265;
 
         &:hover{
           color: #ffffff;
-          background: #10ab10 ;
+          background: #c24327;
           border-color: #30435265;
         }
 }
