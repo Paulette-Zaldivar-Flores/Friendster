@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import LoginImage from '../assets/images/Friendster.png'
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -23,6 +23,11 @@ const Login = () => {
       .then((idToken) => {
         // Set the ID token to local storage
         localStorage.setItem("userToken", idToken);
+        // Set expiration time (e.g., 1 hour from now)
+        const expirationTime = new Date().getTime() + 30*10 * 1000;//
+
+        // Store expiration time in localStorage
+        localStorage.setItem("tokenExpiration", expirationTime);
 
         console.log("ID Token:", idToken);
 
@@ -80,17 +85,21 @@ const Login = () => {
               />
             </div>
             {errorMessage && (
-              <div className="alert alert-danger" role="alert">
+              <div className="alert alert-danger p-2" role="alert">
                 {errorMessage}
               </div>
               )}
-            <button
-              type="button"
-              className="btn btn-warning btn-block mb-5"
-              onClick={handleLogin}
-            >
-              Login
-            </button>
+            <div className="mb-5">
+              <button
+                type="button"
+                className="btn btn-warning btn-block d-inline"
+                onClick={handleLogin}
+              >
+                Login
+              </button>
+              <p className="d-inline ms-3">Don&apos;t have an account?</p>
+              <Link to="/signup" className="d-inline mx-2 text-decoration-none">Sign Up</Link>
+            </div>
           </form>
         </div>
       </div>

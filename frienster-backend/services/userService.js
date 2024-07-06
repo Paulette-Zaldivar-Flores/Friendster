@@ -8,8 +8,12 @@ const createUser = async (name, email, password) => {
 
     // Step 2: Insert user data into the PostgreSQL database
     await insertUserIntoDatabase(userRecord.uid, name, email);
-    return userRecord.uid; // Return the Firebase UID of the newly created user
+
+    // If the sign-up is successful, generate an ID token for the user
+    const idToken = await admin.auth().createCustomToken(userRecord.uid);
+    return idToken;
   } catch (error) {
+    console.log(error.message)
     throw error;
   }
 };
