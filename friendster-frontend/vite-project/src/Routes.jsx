@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import MyEvents from './pages/MyEvents';
 import EventDetails from './components/EventDetail';
 import Layout from './components/Layout';
+import Search from './components/Search';
 import { useAuth } from "./components/auth/AuthProvider";
 
 import AuthenticatedRoute from "./components/auth/AuthenticatedComponent";
@@ -32,6 +33,10 @@ const Router = createBrowserRouter([
         path: "MyEvents",
         element: <AuthenticatedRoute elementName={MyEvents} />
       },
+      {
+        path: "search",
+        element: <Search />,
+      }
     ],
   },
 ]);

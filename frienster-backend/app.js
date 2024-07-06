@@ -8,6 +8,8 @@ const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 
 const eventRoutes = require("./routes/eventRoutes");
+const locationRoutes = require("./routes/locationRoutes");
+const { login } = require("./controllers/userController");
 dotenv.config();
 const app = express();
 
@@ -21,9 +23,10 @@ app.get("/", (req, res) => {
 });
 app.use("/api/user", userRoutes);
 app.use("/api/event", eventRoutes);
+app.use("/api/location", locationRoutes);
 
 //app.use("/events", authenticateUser, eventRoutes);
-const PORT=process.env.PORT || 5000
+const PORT=process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
   // userService.testDatabaseConnection();
