@@ -51,7 +51,20 @@ const Signup = () => {
       })
       .catch((error) => {
         console.error('Error signing up:', error);
-        setErrorMessage('Issue signing up. Please try again.');
+        console.error('Error message:', error.response.data.error.message);
+        if (error.response.data.error.code == "auth/email-already-exists") {
+          setErrorMessage("The email address is already in use");
+
+        } else if (error.response.data.error.code == "auth/invalid-email") {
+          setErrorMessage("The email address is not valid.");
+
+        } else if (error.response.data.error.code == "auth/invalid-password") {
+          setErrorMessage("The password must be a string with at least 6 characters.");
+
+        } else {
+          setErrorMessage('Issue signing up. Please try again.');
+
+        }
       });
 
   };

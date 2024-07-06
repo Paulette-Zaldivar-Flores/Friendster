@@ -13,6 +13,7 @@ const createUser = async (name, email, password) => {
     const idToken = await admin.auth().createCustomToken(userRecord.uid);
     return idToken;
   } catch (error) {
+    console.log(error.message)
     throw error;
   }
 };
