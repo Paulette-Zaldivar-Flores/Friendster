@@ -82,6 +82,7 @@ function MyEvents() {
                 </div>
               </div>
             </div>
+            <h3><FaCalendarAlt className="icon" /> Attending</h3>
             <MyEventCards />
           </div>
         </div>
