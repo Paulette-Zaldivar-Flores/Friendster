@@ -17,7 +17,7 @@ async function createAttendee(attendeeData) {
       throw new Error('Already attending this event.');
     }
 
-    const newFavorite = await prisma.favorite.create({
+    const newAttendee = await prisma.attendee.create({
       data: {
         created: new Date(),
         event_id,

@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { FaShare, FaCopy, FaEnvelope, FaCalendarCheck} from 'react-icons/fa';
+import { FaShare, FaCopy, FaEnvelope} from 'react-icons/fa';
 import { FaArrowLeft } from 'react-icons/fa';
 import { EmailShareButton } from 'react-share';
 import { usePopper } from 'react-popper';
 import { eventDetails } from './EventDetailInfo';
 import AddFavorite from './AddFavorite';
+import AddAttendee from './AddAttendee';
 
 const EventDetail = () => {
   const { id } = useParams();
@@ -19,11 +20,25 @@ const EventDetail = () => {
   const [copy, setCopy] = useState("Copy Link");
   const event = eventDetails[id];
 
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
+
   useEffect(() => {
     if (eventDetailsRef.current) {
       eventDetailsRef.current.scrollIntoView({ behavior: 'instant', block: 'start' });
     }
   }, [id]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setErrorMessage(null);
+    }, 6000);
+
+    setTimeout(() => {
+      setSuccessMessage(null);
+    }, 6000);
+
+  }, [errorMessage, successMessage]);
 
   if (!event) {
     return (
@@ -57,10 +72,18 @@ const EventDetail = () => {
           </div>
           <div className="col-md-4">
             <div className="button-group mt-3 mb-3">
-              <AddFavorite eventid={id} className="display-inline"/>
-              <button className="btn btn-circle calendar-btn mx-1">
-              <FaCalendarCheck />
-              </button>
+              {errorMessage && (
+                <div className="alert alert-danger py-2" role="alert">
+                  {errorMessage}
+                </div>
+              )}
+              {successMessage && (
+                <div className="alert alert-success py-2" role="alert">
+                  {successMessage}
+                </div>
+              )}
+              <AddFavorite eventid={id} err={setErrorMessage} success={setSuccessMessage} />
+              <AddAttendee eventid={id} err={setErrorMessage} success={setSuccessMessage} />
               <button ref={setReferenceElement} onClick={() => setShow(!show)} className="btn btn-circle share-btn mx-1">
                 <FaShare />
               </button>
