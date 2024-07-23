@@ -19,20 +19,20 @@
   }
 
   .pale-purple-btn {
-    background-color: #f3d2ffe1;
-    font-weight: 500;
-    color: #7533e8;
+    background-color: #472e7b9a;
+    font-weight: 400;
+    color: #dcc8ff;
     text-shadow: 0px 0px 0px #00000000;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.461);
-    border: 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.199);
+    border: 1px solid #bfa5eb;
     &:hover {
-      background-color: rgb(215, 171, 214);
-      color: #8539ff;
+      background-color: rgba(133, 92, 132, 0.309);
+      color: #dcc8ff;
     }
 
     &.active {
-      background-color: #bfb9b9;
-      color: #8539ff;
+      background-color: rgba(133, 92, 132, 0.309);
+      color: #dcc8ff;
     }
   }
 

@@ -57,7 +57,7 @@ body {
 
 .pale-purple-btn {
   text-decoration: none;
-  padding: 10px;
+  padding: 5px 10px;
   color:#9176fe;
   border: 1px solid;
   border-color: #7F5FFC;
@@ -104,4 +104,12 @@ body {
   padding: 10px 15px !important;
   margin-left: 16px !important;
   margin-right: 16px !important;
+}
+
+.zoom-card {
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
