@@ -10,6 +10,7 @@ const userRoutes = require("./routes/userRoutes");
 const eventRoutes = require("./routes/eventRoutes");
 const locationRoutes = require("./routes/locationRoutes");
 const favoriteRoutes = require("./routes/favoriteRoutes");
+const attendeeRoutes = require("./routes/attendeeRoutes");
 
 const { login } = require("./controllers/userController");
 dotenv.config();
@@ -27,10 +28,10 @@ app.use("/api/user", userRoutes);
 app.use("/api/event", eventRoutes);
 app.use("/api/location", locationRoutes);
 app.use("/api/favorite", favoriteRoutes);
+app.use("/api/attendee", attendeeRoutes);
 
-//app.use("/events", authenticateUser, eventRoutes);
+
 const PORT=process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-  // userService.testDatabaseConnection();
 });

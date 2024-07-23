@@ -10,11 +10,11 @@ datasource db {
 model attendee {
   id              Int       @id @default(autoincrement())
   created         DateTime? @db.Timestamp(6)
-  user_id         Int?
+  user_id         String    @db.VarChar(255)
   ticket_class_id String?   @db.VarChar(255)
   quantity        Int?
   ticket_status   Boolean?
-  event_id        String?   @db.VarChar(255)
+  event_id        String   @db.VarChar(255)
   order_id        String?   @db.VarChar(255)
   invited_by      String?   @db.VarChar(255)
 }
