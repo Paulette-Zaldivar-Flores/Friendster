@@ -7,9 +7,9 @@
 - [Technologies](#technologies)
 - [Frameworks](#frameworks)
 
-
-
-
+<br>
+<nobr><img width="400px" src="https://github.com/user-attachments/assets/1ef695c9-a6b4-4608-8b3d-c725045ba619"></nobr>
+<nobr><img width="400px" src="https://github.com/user-attachments/assets/9a01c1f5-25d8-4200-8f10-b49f7b1db72c"></nobr>
 
 ---
 
