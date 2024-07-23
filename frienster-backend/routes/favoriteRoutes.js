@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const eventController =require('../controllers/favoriteController');
+const favoriteController =require('../controllers/favoriteController');
 const utils = require('../utils/utils');
 const authenticateUser  = require("../middleware/auth");
 

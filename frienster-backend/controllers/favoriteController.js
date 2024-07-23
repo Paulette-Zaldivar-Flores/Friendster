@@ -8,7 +8,7 @@ const createFavorite = async (req, res) => {
         res.status(201).json({ newFavorite });
     } catch (error) {
         console.error("Error creating favorite:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).json({ message: `${error.message}` });
     }
 };
 

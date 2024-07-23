@@ -101,10 +101,10 @@ model users {
 model favorite {
   id              Int       @id @default(autoincrement())
   created         DateTime? @db.Timestamp(6)
-  liked_status    Boolean?
+  liked_status    Boolean
   number_shared   Int?
-  event_id        Int?
-  user_id         Int?
+  event_id        Int
+  user_id         String    @db.VarChar(255)
 }
 
 model venue {
