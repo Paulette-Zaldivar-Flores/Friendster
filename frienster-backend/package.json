@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/Paulette-Zaldivar-Flores/Code-Wizards#readme",
   "dependencies": {
-    "@prisma/client": "^5.5.2",
+    "@prisma/client": "^5.17.0",
     "axios": "^1.5.1",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
